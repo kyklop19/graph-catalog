@@ -1,0 +1,11 @@
+{
+    "auto-version-increment.version.file": [
+        {
+            "path": "docs\\source\\conf.py",
+            "prefix": "release = '",
+            "sufix": "'",
+            "primary": true,
+            "useWorkspacePath": true
+        }
+    ]
+}
