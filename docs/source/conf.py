@@ -6,6 +6,7 @@
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "graph_catalog"))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -13,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 project = 'graph-catalog'
 copyright = '2024, Dominik Havelka'
 author = 'Dominik Havelka'
-release = '0.1.0'
+release = '0.1.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -21,7 +22,8 @@ release = '0.1.0'
 extensions = [
 	'sphinx.ext.autodoc',
 	'sphinx.ext.viewcode',
-	'sphinx.ext.napoleon'
+	'sphinx.ext.napoleon',
+	"sphinx_codeautolink",
 ]
 
 templates_path = ['_templates']
