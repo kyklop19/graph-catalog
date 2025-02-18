@@ -1,0 +1,12 @@
+- name: test
+  graph:
+  - [1, 2]
+  - [3, 4]
+- name: test
+  graph:
+  - [1, 2]
+  - [3, 4]
+- name: test
+  graph:
+  - [1, 2]
+  - [3, 4]

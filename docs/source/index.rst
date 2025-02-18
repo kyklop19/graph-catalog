@@ -6,13 +6,18 @@
 graph-catalog documentation
 ===========================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+**graph-catalog** je knihovna pro výuku teorie grafů. Snaží se pro různé
+problémy s grafy poskytnout ukázkové funkce, které daný problém řeší. Navíc
+obsahuje katalog grafů, na kterých je možné názorně ukázat a řešit daný problém.
+
+Krom toho umožňuje uživateli převod mezi jednotlivými reprezentacemi grafů
+pomocí sady funkcí pro převod.
 
 .. toctree::
    :maxdepth: 2
    :caption: Obsah:
 
+   pouziti
    problemy/problemy
    reprezentace/index
+   modules/index
