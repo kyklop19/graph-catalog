@@ -36,5 +36,5 @@ def save(name: str, graph: IncMat):
         catalog.write(yaml.safe_dump(data, default_flow_style=None, sort_keys=False))
 
 
-save("test", [[1, 2], [3, 4]])
-print(load("test2"))
+# save("test", [[1, 2], [3, 4]])
+# print(load("test2"))

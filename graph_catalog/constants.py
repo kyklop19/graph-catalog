@@ -1,13 +1,17 @@
+from collections import namedtuple
 from pathlib import Path
 from typing import Any
 
 ROOT_PATH = Path(__file__).resolve().parents[1]
 CATALOG_PATH = ROOT_PATH / "data" / "catalog"
 
+type Weights = dict[str, Any]
 
-type EdgeList = list[tuple[int, int]]
-type AdjList = list[list[int]]
+EdgeTuple = namedtuple("EdgeTuple", ("start_vertex", "end_vertex", "weights"))
+type EdgeList = list[EdgeTuple[int, int, Weights]]
+
+NbrTuple = namedtuple("NbrTuple", ("vertex", "weights"))
+type AdjList = list[list[NbrTuple[int, Weights]]]
+
 type AdjMat = list[list[int]]
 type IncMat = list[list[int]]
-
-type Weight = dict[str, Any]

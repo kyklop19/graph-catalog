@@ -1,0 +1,7 @@
+.wy-table-responsive table{
+    table-layout: fixed;
+    width: 100%;
+}
+.wy-table-responsive table rd{
+    word-wrap: break-word;
+}
