@@ -5,4 +5,6 @@ Moduly
    :maxdepth: 2
    :caption: Obsah:
 
+   constants
+   graph
    catalog

@@ -6,15 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reprezentace grafů &mdash; Dokumentace pro graph-catalog 0.1.6</title>
+  <title>Reprezentace grafů &mdash; Dokumentace pro graph-catalog 0.3.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=125d5c1c" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fc529db1" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=8fcffe53"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=03947e35"></script>
       <script src="../_static/doctools.js?v=888ff710"></script>
       <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
       <script src="../_static/translations.js?v=0275affc"></script>
@@ -95,6 +96,9 @@
 <li class="toctree-l1"><a class="reference internal" href="dynamicka_reprezentace.html">Dynamická reprezentace</a></li>
 </ul>
 </div>
+<p>Jednotlivé grafy mohou mít ohodnocené hrany a vrcholy. Toto ohodnocení je pro
+jednotnost pro hranu či vrchol uloženo v <code class="code docutils literal notranslate"><span class="pre">dict</span></code>, kde klíčem je název ohodnocení
+uložen jako <code class="code docutils literal notranslate"><span class="pre">str</span></code> a hodnota může být kteréhokoliv typu.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 75.0%" />
@@ -119,7 +123,7 @@
 <td><p><code class="docutils literal notranslate"><span class="pre">IncMat</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="dynamicka_reprezentace.html"><span class="doc">Dynamická reprezentace</span></a></p></td>
-<td></td>
+<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">graph_catalog.graph.Graph</span></code></p></td>
 </tr>
 </tbody>
 </table>

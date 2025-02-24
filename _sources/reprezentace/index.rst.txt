@@ -11,6 +11,10 @@ Reprezentace grafů
    matice_incidence
    dynamicka_reprezentace
 
+Jednotlivé grafy mohou mít ohodnocené hrany a vrcholy. Toto ohodnocení je pro
+jednotnost pro hranu či vrchol uloženo v :code:`dict`, kde klíčem je název ohodnocení
+uložen jako :code:`str` a hodnota může být kteréhokoliv typu.
+
 .. list-table::
    :widths: 75 25
    :header-rows: 1
@@ -26,4 +30,4 @@ Reprezentace grafů
    * - :doc:`/reprezentace/matice_incidence`
      - ``IncMat``
    * - :doc:`/reprezentace/dynamicka_reprezentace`
-     - ````
+     - :class:`graph_catalog.graph.Graph`
