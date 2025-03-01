@@ -1,5 +1,7 @@
-from constants import EdgeTuple, NbrTuple
+from constants import ConversionError, EdgeTuple, NbrTuple
 from graph import Edge, Graph, Vertex
+
+SEARCHING_GRAPHS = [[[], [], [], [], [], [], [], [], [], [], []]]
 
 graphs = [
     # {
@@ -10,33 +12,33 @@ graphs = [
     #     "Graph": Graph([]),
     # },
     # Empty
+    # {
+    #     "EdgeList": ConversionError,
+    #     "AdjList": [[], [], []],
+    #     "AdjMat": [
+    #         [0, 0, 0],
+    #         [0, 0, 0],
+    #         [0, 0, 0],
+    #     ],
+    #     "IncMat": [[], [], []],
+    #     "Graph": Graph(
+    #         [
+    #             Vertex(0),
+    #             Vertex(1),
+    #             Vertex(2),
+    #         ]
+    #     ),
+    # },
     {
-        "EdgeList": [],
-        "AdjList": [[], [], []],
-        "AdjMat": [
-            [0, 0, 0],
-            [0, 0, 0],
-            [0, 0, 0],
-        ],
-        "IncMat": [[], [], []],
-        "Graph": Graph(
-            [
-                Vertex(0),
-                Vertex(1),
-                Vertex(2),
-            ]
-        ),
-    },
-    # Undirected
-    {
+        "name": "Undirected",
         "EdgeList": [
             EdgeTuple(0, 1, {"directed": False}),
+            EdgeTuple(0, 2, {"directed": False}),
             EdgeTuple(1, 2, {"directed": False}),
-            EdgeTuple(2, 0, {"directed": False}),
         ],
         "AdjList": [
             [NbrTuple(1, {"index": 0}), NbrTuple(2, {"index": 1})],
-            [NbrTuple(2, {"index": 2}), NbrTuple(0, {"index": 0})],
+            [NbrTuple(0, {"index": 0}), NbrTuple(2, {"index": 2})],
             [NbrTuple(0, {"index": 1}), NbrTuple(1, {"index": 2})],
         ],
         "AdjMat": [
@@ -51,8 +53,8 @@ graphs = [
         ],
         "Graph": Graph([]),  #! TODO
     },
-    # Directed
     {
+        "name": "Directed",
         "EdgeList": [
             EdgeTuple(0, 1, {"directed": True}),
             EdgeTuple(0, 2, {"directed": True}),
@@ -75,8 +77,8 @@ graphs = [
         ],
         "Graph": Graph([]),  #! TODO
     },
-    # Mixed
     {
+        "name": "Mixed",
         "EdgeList": [
             EdgeTuple(0, 1, {"directed": False}),
             EdgeTuple(0, 2, {"directed": False}),
@@ -103,8 +105,8 @@ graphs = [
         ],
         "Graph": Graph([]),  #! TODO
     },
-    # Loop
     {
+        "name": "Loop",
         "EdgeList": [
             EdgeTuple(0, 1, {"directed": False}),
             EdgeTuple(0, 2, {"directed": False}),

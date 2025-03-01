@@ -15,3 +15,7 @@ type AdjList = list[list[NbrTuple[int, Weights]]]
 
 type AdjMat = list[list[int]]
 type IncMat = list[list[int]]
+
+
+class ConversionError(Exception):
+    pass

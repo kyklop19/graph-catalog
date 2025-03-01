@@ -17,7 +17,9 @@ class TestFromAdjMat(unittest.TestCase):
 
     def test_AdjMat2EdgeList(self):
         for graph in graphs:
-            self.assertEqual(AdjMat2EdgeList(graph["AdjMat"]), graph["EdgeList"])
+            self.assertEqual(
+                AdjMat2EdgeList(graph["AdjMat"]), graph["EdgeList"], graph["name"]
+            )
 
     def test_AdjMat2Graph(self):
         for graph in graphs:

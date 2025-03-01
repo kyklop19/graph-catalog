@@ -13,8 +13,8 @@ def AdjList2EdgeList(graph: AdjList) -> EdgeList:
     """
 
     res = []
-    for starting_vertex, edges in enumerate(graph):
-        for nbr in edges:
+    for starting_vertex, nbrs in enumerate(graph):
+        for nbr in nbrs:
             pass
     return res
 
