@@ -31,6 +31,7 @@ Pygments==2.18.0
 pyspellchecker==0.8.2
 pyvis==0.3.2
 PyYAML==6.0.2
+regex-spm==1.0.0
 requests==2.32.3
 snowballstemmer==2.2.0
 soupsieve==2.6
