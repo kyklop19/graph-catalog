@@ -11,4 +11,5 @@ def find_topological_ordering(graph: AdjList) -> list[int]:
             if dfs_states.closing_orders[curr_vertex] != -1:
                 res.append(curr_vertex)
 
+    res.reverse()
     return res

@@ -1,0 +1,7 @@
+key: graph
+test:
+  graph:
+  - []
+  name:
+  - PATH
+  - 123

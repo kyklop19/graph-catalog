@@ -2,7 +2,15 @@ from algorithms.searching import dfs
 from constants import AdjList
 
 
-def get_num_of_components(graph: AdjList) -> int:
+def count_components(graph: AdjList) -> int:
+    """Count the number of components in an undirected graph
+
+    Args:
+        graph (AdjList): Undirected graph represented as adjacency list
+
+    Returns:
+        int: Number of components in the graph
+    """
 
     num_of_components = 0
 
@@ -14,6 +22,14 @@ def get_num_of_components(graph: AdjList) -> int:
 
 
 def divide_into_components(graph: AdjList) -> list[int]:
+    """Find for each vertex a component in which the vertex is contained
+
+    Args:
+        graph (AdjList): Undirected graph represented as adjacency list
+
+    Returns:
+        list[int]: List where each index represents vertex and each element is an index of a component
+    """
     num_of_V = len(graph)
     res = [-1] * num_of_V
 

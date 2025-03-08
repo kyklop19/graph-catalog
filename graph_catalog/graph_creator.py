@@ -1,3 +1,5 @@
+from enum import Enum, auto
+
 from constants import ROOT_PATH
 from conversion.from_inc_mat import (
     IncMat2AdjList,
@@ -9,6 +11,12 @@ from pyvis.network import Network
 from regex_spm import fullmatch_in
 
 
+class EdgeType:
+    UNDIRECTED = auto()
+    DIRECTED_TO = auto()
+    DIRECTED_FROM = auto()
+
+
 class CommandExecutor:
 
     def __init__(self):
@@ -16,6 +24,11 @@ class CommandExecutor:
 
     def reset(self):
         self.graph = [[]]
+        self.edge_weights = []
+        self.default_weight_name = "length"
+        self.default_arrow = None
+        self.arrow_map = {"to": "to", "from": "from", "u": None}
+
         self.net = Network(directed=True, font_color="black")
         self.net.add_node("0")
         self.net.toggle_physics(True)
@@ -56,12 +69,46 @@ class CommandExecutor:
             self.graph[row].append(0)
 
         self.graph[first_vertex][-1] = 1
-        self.graph[second_vertex][-1] = -1 if directed else 1
+
+        if self.graph[second_vertex][-1] != 0:
+            second_vertex_value = 2
+        elif directed:
+            second_vertex_value = -1
+        else:
+            second_vertex_value = 1
+        self.graph[second_vertex][-1] = second_vertex_value
+
+        self.edge_weights.append({})
 
         arrow = "to" if directed else None
         self.net.add_edge(
             str(first_vertex), str(second_vertex), arrows=arrow, label=str(num_of_E)
         )
+
+        self.update_html()
+
+    def add_edge_weight(self, edge, value):
+        self.edge_weights[edge][self.default_weight_name] = value
+        self.net.get_edges()[edge][
+            "label"
+        ] += f"\n| {self.default_weight_name}: {value}"
+        self.update_html()
+
+    def join_vertex(self, nbr):
+        num_of_V = len(self.graph)
+
+        for row in range(num_of_V):
+            self.graph[row].append(0)
+
+        num_of_E = len(self.graph[0])
+        self.graph.append([0] * num_of_E)
+
+        self.graph[nbr][-1] = 1
+        self.graph[-1][-1] = 1
+
+        self.net.add_node(str(num_of_V))
+
+        self.net.add_edge(str(nbr), str(num_of_V), arrows=None, label=str(num_of_E - 1))
 
         self.update_html()
 
@@ -82,7 +129,16 @@ class CommandExecutor:
                 directed = True if m[3] == "d" else False
 
                 self.add_edge(first_vertex, second_vertex, directed)
-
+            case r"(\d+)" as m:
+                self.join_vertex(int(m[1]))
+            case r"sete (\w+)" as m:
+                self.default_arrow = self.arrow_map[m[1]]
+            case r"setw (\w+)" as m:
+                self.default_weight_name = m[1]
+            case r"w (\d+) (\d+)" as m:
+                self.add_edge_weight(int(m[1]), int(m[2]))
+            case __:
+                print("unsupported cmd")
         return quit
 
     def update_html(self):

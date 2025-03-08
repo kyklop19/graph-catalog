@@ -1,6 +1,6 @@
 import unittest
 
-from algorithms.components import divide_into_components, get_num_of_components
+from algorithms.connectivity import count_components, divide_into_components
 from constants import NbrTuple
 
 EMPTY_GRAPH = [[], [], [], [], [], []]
@@ -18,13 +18,13 @@ UNDIRECTED_GRAPH = [
 ]
 
 
-class TestComponents(unittest.TestCase):
+class TestConnectivity(unittest.TestCase):
 
-    def test_get_num_of_components(self):
-        self.assertEqual(get_num_of_components(EMPTY_GRAPH), 6)
+    def test_count_components(self):
+        self.assertEqual(count_components(EMPTY_GRAPH), 6)
 
         self.assertEqual(
-            get_num_of_components(UNDIRECTED_GRAPH),
+            count_components(UNDIRECTED_GRAPH),
             3,
         )
 
