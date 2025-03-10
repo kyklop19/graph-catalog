@@ -75,4 +75,22 @@ def AdjList2IncMat(graph: AdjList) -> IncMat:
 
 
 def AdjList2Graph(graph: AdjList) -> Graph:
-    pass
+
+    num_of_V = len(graph)
+
+    res = Graph()
+
+    for __ in range(num_of_V):
+        res.add_vertex()
+
+    for source_vertex, source_nbrs in enumerate(graph):
+        for source_nbr in source_nbrs:
+
+            index = source_nbr.weights["index"]
+            directed = True
+            for nbr in graph[source_nbr.vertex]:
+                if nbr.weights["index"] == index:
+                    directed = False
+                    break
+
+    return res

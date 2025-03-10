@@ -20,4 +20,5 @@ pomocí sady funkcí pro převod.
    pouziti
    problemy/problemy
    reprezentace/index
+   katalog/index
    modules/index

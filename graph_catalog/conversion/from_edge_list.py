@@ -58,14 +58,20 @@ def EdgeList2IncMat(graph: EdgeList) -> IncMat:
 
 def EdgeList2Graph(graph: EdgeList) -> Graph:
 
-    num_of_V = max(max(graph, key=lambda x: max(x[0], x[1]))[0:2]) + 1
+    num_of_V = max(max(v1, v2) for v1, v2, __ in graph)
 
-    vertices = [Vertex(i) for i in range(num_of_V)]
-    edges = []
+    res = Graph()
 
-    for i, edge in enumerate(graph):
-        edges.append(
-            Edge(
-                i,
-            )
-        )
+    for __ in range(num_of_V):
+        res.add_vertex()
+
+    for edge in graph:
+        if edge.weights["directed"]:
+            if edge[0] == edge[1]:
+                res.add_loop(edge[0])
+            else:
+                res.add_directed_edge(*edge)
+        else:
+            res.add_undirected_edge(*edge)
+
+    return res

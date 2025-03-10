@@ -70,4 +70,24 @@ def AdjMat2IncMat(graph: AdjMat) -> IncMat:
 
 
 def AdjMat2Graph(graph: AdjMat) -> Graph:
-    pass
+    num_of_V = len(graph)
+
+    res = Graph()
+    for __ in range(num_of_V):
+        res.add_vertex()
+
+    for from_v in range(num_of_V):
+        for to_v in range(num_of_V - from_v):
+            to_v += from_v
+            if graph[from_v][to_v] == 0:
+                continue
+
+            if from_v == to_v:
+                res.add_loop(from_v)
+                continue
+
+            if graph[to_v][from_v] == 0:
+                res.add_directed_edge(from_v, to_v)
+            else:
+                res.add_undirected_edge(from_v, to_v)
+    return res
