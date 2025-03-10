@@ -3,6 +3,43 @@ from graph import Edge, Graph, Vertex
 
 SEARCHING_GRAPHS = [[[], [], [], [], [], [], [], [], [], [], []]]
 
+UNDIRECTED = Graph()
+
+for __ in range(3):
+    UNDIRECTED.add_vertex()
+
+UNDIRECTED.add_undirected_edge(0, 1)
+UNDIRECTED.add_undirected_edge(0, 2)
+UNDIRECTED.add_undirected_edge(1, 2)
+
+DIRECTED = Graph()
+
+for __ in range(3):
+    DIRECTED.add_vertex()
+
+DIRECTED.add_directed_edge(0, 1)
+DIRECTED.add_directed_edge(0, 2)
+DIRECTED.add_directed_edge(1, 2)
+
+MIXED = Graph()
+
+for __ in range(4):
+    MIXED.add_vertex()
+
+MIXED.add_undirected_edge(0, 1)
+MIXED.add_undirected_edge(0, 2)
+MIXED.add_directed_edge(1, 2)
+MIXED.add_directed_edge(2, 3)
+
+LOOP = Graph()
+
+for __ in range(3):
+    LOOP.add_vertex()
+
+LOOP.add_undirected_edge(0, 1)
+LOOP.add_undirected_edge(0, 2)
+LOOP.add_loop(2)
+
 graphs = [
     # {
     #     "EdgeList": [],
@@ -51,7 +88,7 @@ graphs = [
             [1, 0, 1],
             [0, 1, 1],
         ],
-        "Graph": Graph([]),  #! TODO
+        "Graph": UNDIRECTED,
     },
     {
         "name": "Directed",
@@ -75,7 +112,7 @@ graphs = [
             [-1, 0, 1],
             [0, -1, -1],
         ],
-        "Graph": Graph([]),  #! TODO
+        "Graph": DIRECTED,
     },
     {
         "name": "Mixed",
@@ -103,7 +140,7 @@ graphs = [
             [0, 1, -1, 1],
             [0, 0, 0, -1],
         ],
-        "Graph": Graph([]),  #! TODO
+        "Graph": MIXED,
     },
     {
         "name": "Loop",
@@ -127,6 +164,6 @@ graphs = [
             [1, 0, 0],
             [0, 1, 2],
         ],
-        "Graph": Graph([]),  #! TODO
+        "Graph": LOOP,
     },
 ]

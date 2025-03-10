@@ -1,5 +1,5 @@
 from collections import deque, namedtuple
-from enum import IntEnum
+from enum import Flag, IntEnum, auto
 from math import inf
 from typing import Iterator
 
@@ -15,11 +15,17 @@ class SearchState(IntEnum):
     CLOSED = 2
 
 
+class DFSOrder(Flag):
+    PREORDER = auto()
+    POSTORDER = auto()
+
+
 def _dfs_component(
     graph: AdjList,
     start_vertex: int,
     orders: tuple[int, int],
     dfs_states: DFSStates[list[int | None], list[int], list[int]],
+    search_order: DFSOrder,
 ) -> Iterator[
     tuple[int, tuple[int, int], DFSStates[list[int | None], list[int], list[int]]]
 ]:
@@ -39,30 +45,38 @@ def _dfs_component(
         if opening_orders[curr_vertex] == -1:
             opening_orders[curr_vertex] = opening_order
             opening_order += 1
+
+            if DFSOrder.PREORDER in search_order:
+                yield (
+                    curr_vertex,
+                    (opening_order, closing_order),
+                    DFSStates(parents, opening_orders, closing_orders),
+                )
+
+            for nbr, __ in reversed(graph[curr_vertex]):
+                if opening_orders[nbr] == -1:
+                    parents[nbr] = curr_vertex
+                    to_visit.append(nbr)
+
         elif closing_orders[curr_vertex] == -1:
             closing_orders[curr_vertex] = closing_order
             closing_order += 1
             to_visit.pop()
-            continue
+
+            if DFSOrder.POSTORDER in search_order:
+                yield (
+                    curr_vertex,
+                    (opening_order, closing_order),
+                    DFSStates(parents, opening_orders, closing_orders),
+                )
         else:
             to_visit.pop()
-            continue
-
-        yield (
-            curr_vertex,
-            (opening_order, closing_order),
-            DFSStates(parents, opening_orders, closing_orders),
-        )
-
-        for nbr, __ in reversed(graph[curr_vertex]):
-            if opening_orders[nbr] == -1:
-                parents[nbr] = curr_vertex
-                to_visit.append(nbr)
 
 
 def dfs_component(
     graph: AdjList,
     start_vertex: int = 0,
+    search_order: DFSOrder = DFSOrder.PREORDER,
 ) -> Iterator[tuple[int, DFSStates[list[int | None], list[int], list[int]]]]:
     length = len(graph)
     orders = (0, 0)
@@ -73,15 +87,25 @@ def dfs_component(
     )
 
     for curr_vertex, __, curr_dfs_states in _dfs_component(
-        graph, start_vertex, orders, dfs_states
+        graph, start_vertex, orders, dfs_states, search_order
     ):
         yield (curr_vertex, curr_dfs_states)
 
 
 def dfs(
-    graph: AdjList, start_vertex: int = 0
+    graph: AdjList,
+    start_vertex: int = 0,
+    search_order: DFSOrder = DFSOrder.PREORDER,
 ) -> Iterator[tuple[int, DFSStates[list[int | None], list[int], list[int]]]]:
+    """Iterates over the graph's vertices in DFS manner and yields current vertex and state
 
+    Args:
+        graph (AdjList): Graph as `AdjList`
+        start_vertex (int, optional): _description_. Defaults to 0.
+
+    Yields:
+        Iterator[tuple[int, DFSStates[list[int | None], list[int], list[int]]]]: _description_
+    """
     length = len(graph)
     orders = (0, 0)
     dfs_states = DFSStates(
@@ -90,10 +114,17 @@ def dfs(
         [-1] * length,
     )
 
+    for curr_vertex, curr_orders, curr_dfs_states in _dfs_component(
+        graph, start_vertex, orders, dfs_states, search_order
+    ):
+        orders = curr_orders
+        dfs_states = curr_dfs_states
+        yield (curr_vertex, curr_dfs_states)
+
     for i in range(length):
         if dfs_states.opening_orders[i] == -1:
             for curr_vertex, curr_orders, curr_dfs_states in _dfs_component(
-                graph, i, orders, dfs_states
+                graph, i, orders, dfs_states, search_order
             ):
                 orders = curr_orders
                 dfs_states = curr_dfs_states

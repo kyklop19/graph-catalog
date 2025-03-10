@@ -1,7 +1,5 @@
-key: graph
-test:
+123PATH:
   graph:
   - []
-  name:
-  - PATH
-  - 123
+  name: PATH
+  number: 123

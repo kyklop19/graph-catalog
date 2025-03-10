@@ -7,4 +7,7 @@ Moduly
 
    constants
    graph
+   heap
    catalog
+   conversion/index
+   algorithms/index
