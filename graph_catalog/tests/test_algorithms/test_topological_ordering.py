@@ -2,6 +2,7 @@ import unittest
 
 from algorithms.topological_ordering import find_topological_ordering
 from constants import NbrTuple
+from testing_data import BACK_EDGE, CROSS_EDGE, FORWARD_EDGE
 
 EMPTY = [[], [], [], [], [], []]
 
@@ -16,8 +17,11 @@ PATH = [
 class TestTopologicalOrdering(unittest.TestCase):
 
     def test_find_topological_ordering(self):
-        self.assertEqual(find_topological_ordering(EMPTY), [0, 1, 2, 3, 4, 5])
+        self.assertEqual(find_topological_ordering(EMPTY), [5, 4, 3, 2, 1, 0])
         self.assertEqual(find_topological_ordering(PATH), [0, 1, 2, 3])
+        self.assertIsNone(find_topological_ordering(BACK_EDGE))
+        self.assertEqual(find_topological_ordering(CROSS_EDGE), [0, 3, 1, 2])
+        self.assertEqual(find_topological_ordering(FORWARD_EDGE), [0, 1, 2, 3])
 
 
 if __name__ == "__main__":

@@ -3,6 +3,33 @@ from graph import Edge, Graph, Vertex
 
 SEARCHING_GRAPHS = [[[], [], [], [], [], [], [], [], [], [], []]]
 
+BACK_EDGE = [
+    [NbrTuple(vertex=1, weights={"index": 0})],
+    [NbrTuple(vertex=2, weights={"index": 1})],
+    [NbrTuple(vertex=3, weights={"index": 2})],
+    [NbrTuple(vertex=0, weights={"index": 3})],
+]
+
+CROSS_EDGE = [
+    [
+        NbrTuple(vertex=1, weights={"index": 0}),
+        NbrTuple(vertex=3, weights={"index": 2}),
+    ],
+    [NbrTuple(vertex=2, weights={"index": 1})],
+    [],
+    [NbrTuple(vertex=2, weights={"index": 3})],
+]
+
+FORWARD_EDGE = [
+    [
+        NbrTuple(vertex=1, weights={"index": 0}),
+        NbrTuple(vertex=3, weights={"index": 3}),
+    ],
+    [NbrTuple(vertex=2, weights={"index": 1})],
+    [NbrTuple(vertex=3, weights={"index": 2})],
+    [],
+]
+
 UNDIRECTED = Graph()
 
 for __ in range(3):
@@ -32,6 +59,7 @@ MIXED.add_directed_edge(1, 2)
 MIXED.add_directed_edge(2, 3)
 
 LOOP = Graph()
+
 
 for __ in range(3):
     LOOP.add_vertex()

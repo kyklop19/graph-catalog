@@ -15,7 +15,7 @@ class Vertex:
     ) -> None:
         self.index = index
         self._outgoing_edges = []
-        self._nbrs = set()
+        self._nbrs = []
         for edge in outgoing_edges:
             self.add_edge(edge)
         self.weights = weights
@@ -25,13 +25,14 @@ class Vertex:
             return all(
                 (
                     self.index == other.index,
-                    self.outgoing_edges == other.outgoing_edges,
-                    self.nbrs == other.nbrs,
                     self.weights == other.weights,
                 )
             )
         else:
             return NotImplemented
+
+    def __repr__(self):
+        return f"Vertex {self.index} {self.weights}"
 
     @property
     def outgoing_edges(self) -> list[Edge]:
@@ -50,7 +51,9 @@ class Vertex:
         self._outgoing_edges.append(edge)
 
         for nbr in edge.get_target_vertices(self):
-            self._nbrs.add(nbr)
+            is_found, index = binary_search(self._nbrs, nbr, key=lambda x: x.index)
+            if not is_found:
+                self._nbrs.insert(index, nbr)
 
 
 class Edge(ABC):
@@ -62,9 +65,12 @@ class Edge(ABC):
 
     def __eq__(self, other):
         if isinstance(other, Edge):
-            return all(self.index == other.index, self.weights == other.weights)
+            return all((self.index == other.index, self.weights == other.weights))
         else:
             return NotImplemented
+
+    def __repr__(self):
+        return f"{type(self).__name__}{self.weights}"
 
     @abstractmethod
     def get_target_vertices(self, source_vertex: Vertex | None) -> Iterator[Vertex]:
@@ -109,8 +115,10 @@ class DirectedEdge(Edge):
     def __eq__(self, other):
         if isinstance(other, DirectedEdge):
             return super().__eq__(other) and all(
-                self.source_vertex == other.source_vertex,
-                self.target_vertex == other.target_vertex,
+                (
+                    self.source_vertex == other.source_vertex,
+                    self.target_vertex == other.target_vertex,
+                )
             )
         else:
             return NotImplemented
@@ -174,8 +182,10 @@ class DirectedHyperedge(Edge):
     def __eq__(self, other):
         if isinstance(other, DirectedHyperedge):
             return super().__eq__(other) and all(
-                self.source_vertices == other.source_vertices,
-                self.target_vertices == other.target_vertices,
+                (
+                    self.source_vertices == other.source_vertices,
+                    self.target_vertices == other.target_vertices,
+                )
             )
         else:
             return NotImplemented
@@ -188,7 +198,13 @@ class DirectedHyperedge(Edge):
 class Graph:
     """Represent graph in dynamic manner."""
 
-    def __init__(self, vertices: list[Vertex] = [], edges: list[Edge] = []) -> None:
+    def __init__(self, vertices: list[Vertex] = None, edges: list[Edge] = None) -> None:
+
+        if vertices is None:
+            vertices = []
+        if edges is None:
+            edges = []
+
         self._vertices = vertices
         self._edges = edges
         """List of edges represented as Edge class.
@@ -199,6 +215,9 @@ class Graph:
             return self.vertices == other.vertices and self.edges == other.edges
         else:
             return NotImplemented
+
+    def __repr__(self):
+        return str(self.vertices) + " " + str(self.edges)
 
     @property
     def vertices(self):

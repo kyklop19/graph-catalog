@@ -1,22 +1,35 @@
-from algorithms.cycles import check_for_cycle_directed
 from algorithms.searching import DFSOrder, dfs
 from constants import AdjList
 
 
-def find_topological_ordering(graph: AdjList) -> list[int]:
-    """Find toplogical ordering of the given graph
+def find_topological_ordering(graph: AdjList) -> list[int] | None:
+    """Find topological ordering of the given directed graph
 
     Args:
-        graph (AdjList): _description_
+        graph (AdjList): Directed graph as adjacency list
 
     Returns:
-        list[int]: _description_
+        list[int]|None: List of vertex indexes in topological order if graph is acyclic else None
     """
     res = []
 
-    if not check_for_cycle_directed(graph):
-        for curr_vertex, dfs_states in dfs(graph, search_order=DFSOrder.POSTORDER):
+    for curr_vertex, dfs_states in dfs(
+        graph, search_order=DFSOrder.PREORDER | DFSOrder.POSTORDER
+    ):
+        if dfs_states.closing_orders[curr_vertex] == -1:
+            for nbr, __ in graph[curr_vertex]:
+                if (
+                    dfs_states.opening_orders[nbr] != -1
+                    and dfs_states.closing_orders[nbr] == -1
+                ):
+                    res = None
+                    break
+        else:
             res.append(curr_vertex)
 
-    res.reverse()
+        if res is None:
+            break
+
+    if res is not None:
+        res.reverse()
     return res

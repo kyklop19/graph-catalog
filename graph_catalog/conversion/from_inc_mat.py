@@ -61,7 +61,7 @@ def IncMat2AdjList(graph: IncMat) -> AdjList:
     for __ in range(num_of_V):
         res.append([])
 
-    for edge, from_v, to_v, directed in enumerate(iterate_over_edges(graph)):
+    for edge, (from_v, to_v, directed) in enumerate(iterate_over_edges(graph)):
 
         res[from_v].append(NbrTuple(to_v, {"index": edge}))
         if not directed:

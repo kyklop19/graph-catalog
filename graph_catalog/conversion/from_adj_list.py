@@ -1,4 +1,6 @@
-from constants import AdjList, AdjMat, EdgeList, IncMat
+from copy import deepcopy
+
+from constants import AdjList, AdjMat, EdgeList, EdgeTuple, IncMat
 from graph import Edge, Graph, Vertex
 
 
@@ -12,10 +14,36 @@ def AdjList2EdgeList(graph: AdjList) -> EdgeList:
         EdgeList: Graph as edge list
     """
 
+    num_of_V = len(graph)
+
     res = []
-    for starting_vertex, nbrs in enumerate(graph):
-        for nbr in nbrs:
-            pass
+
+    added_edges = set()
+
+    for source_vertex, source_nbrs in enumerate(graph):
+        for source_nbr in source_nbrs:
+
+            index = source_nbr.weights["index"]
+
+            if index in added_edges:
+                continue
+            else:
+                added_edges.add(index)
+
+            weights = deepcopy(source_nbr.weights)
+            del weights["index"]
+
+            directed = True
+            if source_vertex != source_nbr[0]:
+                for nbr in graph[source_nbr.vertex]:
+                    if nbr.weights["index"] == index:
+                        directed = False
+                        break
+
+            weights["directed"] = directed
+
+            res.append(EdgeTuple(source_vertex, source_nbr[0], weights))
+
     return res
 
 
@@ -83,14 +111,34 @@ def AdjList2Graph(graph: AdjList) -> Graph:
     for __ in range(num_of_V):
         res.add_vertex()
 
+    added_edges = set()
+
     for source_vertex, source_nbrs in enumerate(graph):
         for source_nbr in source_nbrs:
 
             index = source_nbr.weights["index"]
+
+            if index in added_edges:
+                continue
+            else:
+                added_edges.add(index)
+
+            weights = deepcopy(source_nbr.weights)
+            del weights["index"]
+
             directed = True
-            for nbr in graph[source_nbr.vertex]:
-                if nbr.weights["index"] == index:
-                    directed = False
-                    break
+            if source_vertex != source_nbr[0]:
+                for nbr in graph[source_nbr.vertex]:
+                    if nbr.weights["index"] == index:
+                        directed = False
+                        break
+
+            if directed:
+                if source_vertex == source_nbr[0]:
+                    res.add_loop(source_vertex, weights)
+                else:
+                    res.add_directed_edge(source_vertex, source_nbr[0], weights)
+            else:
+                res.add_undirected_edge(source_vertex, source_nbr[0], weights)
 
     return res

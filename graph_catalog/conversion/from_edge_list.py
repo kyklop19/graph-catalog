@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 from constants import AdjList, AdjMat, EdgeList, IncMat, NbrTuple
 from graph import Edge, Graph, Vertex
 
@@ -58,7 +60,7 @@ def EdgeList2IncMat(graph: EdgeList) -> IncMat:
 
 def EdgeList2Graph(graph: EdgeList) -> Graph:
 
-    num_of_V = max(max(v1, v2) for v1, v2, __ in graph)
+    num_of_V = max(max(v1, v2) for v1, v2, __ in graph) + 1
 
     res = Graph()
 
@@ -66,12 +68,15 @@ def EdgeList2Graph(graph: EdgeList) -> Graph:
         res.add_vertex()
 
     for edge in graph:
-        if edge.weights["directed"]:
+        directed = edge.weights["directed"]
+        weights = deepcopy(edge.weights)
+        del weights["directed"]
+        if directed:
             if edge[0] == edge[1]:
                 res.add_loop(edge[0])
             else:
-                res.add_directed_edge(*edge)
+                res.add_directed_edge(edge[0], edge[1], weights)
         else:
-            res.add_undirected_edge(*edge)
+            res.add_undirected_edge(edge[0], edge[1], weights)
 
     return res
