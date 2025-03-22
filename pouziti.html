@@ -1,21 +1,21 @@
 
 <!DOCTYPE html>
 
-<html class="writer-html5" lang="cs">
+<html class="writer-html5" data-content_root="./" lang="cs">
 <head>
 <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Použití — Dokumentace pro graph-catalog 0.6.0</title>
-<link href="_static/pygments.css?v=b86133f3" rel="stylesheet" type="text/css"/>
+<title>Použití — Dokumentace pro graph-catalog 0.8.0</title>
+<link href="_static/pygments.css?v=80d5e7a1" rel="stylesheet" type="text/css"/>
 <link href="_static/css/theme.css?v=e59714d7" rel="stylesheet" type="text/css"/>
 <link href="_static/sphinx-codeautolink.css?v=125d5c1c" rel="stylesheet" type="text/css"/>
 <link href="_static/css/custom.css?v=fc529db1" rel="stylesheet" type="text/css"/>
 <script src="_static/jquery.js?v=5d32c60e"></script>
 <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-<script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=6e651b49"></script>
-<script src="_static/doctools.js?v=888ff710"></script>
-<script src="_static/sphinx_highlight.js?v=4825356b"></script>
-<script src="_static/translations.js?v=0275affc"></script>
+<script src="_static/documentation_options.js?v=8bd928dc"></script>
+<script src="_static/doctools.js?v=9bcbadda"></script>
+<script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="_static/translations.js?v=22e1c300"></script>
 <script src="_static/js/theme.js"></script>
 <link href="genindex.html" rel="index" title="Rejstřík"/>
 <link href="search.html" rel="search" title="Vyhledávání"/>
@@ -42,11 +42,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Použití</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#nacteni-grafu-z-katalogu">Načtení grafu z katalogu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prevody-grafu-mezi-reprezentacemi">Převody grafů mezi reprezentacemi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ukazkove-funkce">Ukázkové funkce</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="problemy/problemy.html">Problémy teorie grafů</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reprezentace/index.html">Reprezentace grafů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="katalog/index.html">Katalog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/index.html">Moduly</a></li>
 </ul>
 </div>
@@ -71,15 +73,26 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div itemprop="articleBody">
 <section id="pouziti">
-<h1>Použití<a class="headerlink" href="#pouziti" title="Permalink to this heading"></a></h1>
+<h1>Použití<a class="headerlink" href="#pouziti" title="Link to this heading"></a></h1>
 <section id="nacteni-grafu-z-katalogu">
-<h2>Načtení grafu z katalogu<a class="headerlink" href="#nacteni-grafu-z-katalogu" title="Permalink to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">graph_catalog.catalog</span><span class="w"> </span><span class="kn">import</span> <span class="n">load</span>
+<h2>Načtení grafu z katalogu<a class="headerlink" href="#nacteni-grafu-z-katalogu" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graph_catalog.catalog</span> <span class="kn">import</span> <span class="n">load</span>
+
+<span class="n">load</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="prevody-grafu-mezi-reprezentacemi">
+<h2>Převody grafů mezi reprezentacemi<a class="headerlink" href="#prevody-grafu-mezi-reprezentacemi" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graph_catalog.conversion.from_inc_mat</span> <span class="kn">import</span> <span class="n">IncMat2AdjList</span>
 </pre></div>
 </div>
 </section>
 <section id="ukazkove-funkce">
-<h2>Ukázkové funkce<a class="headerlink" href="#ukazkove-funkce" title="Permalink to this heading"></a></h2>
+<h2>Ukázkové funkce<a class="headerlink" href="#ukazkove-funkce" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graph_catalog.algorithms.searching</span> <span class="kn">import</span> <span class="n">dfs</span>
+</pre></div>
+</div>
 </section>
 </section>
 </div>

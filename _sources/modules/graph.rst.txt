@@ -1,5 +1,5 @@
 graph
 =====
 
-.. automodule:: graph_catalog.graph
+.. automodule:: graph
    :members:

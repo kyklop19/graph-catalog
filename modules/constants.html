@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="cs">
+<html class="writer-html5" lang="cs" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>constants &mdash; Dokumentace pro graph-catalog 0.6.0</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+  <title>constants &mdash; Dokumentace pro graph-catalog 0.8.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=125d5c1c" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fc529db1" />
@@ -15,10 +15,10 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=6e651b49"></script>
-      <script src="../_static/doctools.js?v=888ff710"></script>
-      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-      <script src="../_static/translations.js?v=0275affc"></script>
+      <script src="../_static/documentation_options.js?v=8bd928dc"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=22e1c300"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Rejstřík" href="../genindex.html" />
     <link rel="search" title="Vyhledávání" href="../search.html" />
@@ -50,10 +50,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../pouziti.html">Použití</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problemy/problemy.html">Problémy teorie grafů</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reprezentace/index.html">Reprezentace grafů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../katalog/index.html">Katalog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Moduly</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">constants</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.constants.ConversionError"><code class="docutils literal notranslate"><span class="pre">ConversionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.constants.EdgeTuple"><code class="docutils literal notranslate"><span class="pre">EdgeTuple</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.constants.EdgeTuple.end_vertex"><code class="docutils literal notranslate"><span class="pre">EdgeTuple.end_vertex</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.constants.EdgeTuple.start_vertex"><code class="docutils literal notranslate"><span class="pre">EdgeTuple.start_vertex</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.constants.EdgeTuple.weights"><code class="docutils literal notranslate"><span class="pre">EdgeTuple.weights</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.constants.NbrTuple"><code class="docutils literal notranslate"><span class="pre">NbrTuple</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.constants.NbrTuple.vertex"><code class="docutils literal notranslate"><span class="pre">NbrTuple.vertex</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.constants.NbrTuple.weights"><code class="docutils literal notranslate"><span class="pre">NbrTuple.weights</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="graph.html">graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heap.html">heap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversion/index.html">conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/index.html">algorithms</a></li>
 </ul>
 </li>
 </ul>
@@ -83,8 +101,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="constants">
-<h1>constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h1>
+  <section id="module-graph_catalog.constants">
+<span id="constants"></span><h1>constants<a class="headerlink" href="#module-graph_catalog.constants" title="Link to this heading"></a></h1>
+<dl class="py exception">
+<dt class="sig sig-object py" id="graph_catalog.constants.ConversionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.constants.</span></span><span class="sig-name descname"><span class="pre">ConversionError</span></span><a class="reference internal" href="../_modules/graph_catalog/constants.html#ConversionError"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.constants.ConversionError" title="Link to this definition"></a></dt>
+<dd><p>Raised if conversion between two graph representations isn’t supported</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="graph_catalog.constants.EdgeTuple">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.constants.</span></span><span class="sig-name descname"><span class="pre">EdgeTuple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph_catalog.constants.EdgeTuple" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.constants.EdgeTuple.end_vertex">
+<span class="sig-name descname"><span class="pre">end_vertex</span></span><a class="headerlink" href="#graph_catalog.constants.EdgeTuple.end_vertex" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.constants.EdgeTuple.start_vertex">
+<span class="sig-name descname"><span class="pre">start_vertex</span></span><a class="headerlink" href="#graph_catalog.constants.EdgeTuple.start_vertex" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.constants.EdgeTuple.weights">
+<span class="sig-name descname"><span class="pre">weights</span></span><a class="headerlink" href="#graph_catalog.constants.EdgeTuple.weights" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="graph_catalog.constants.NbrTuple">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.constants.</span></span><span class="sig-name descname"><span class="pre">NbrTuple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph_catalog.constants.NbrTuple" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.constants.NbrTuple.vertex">
+<span class="sig-name descname"><span class="pre">vertex</span></span><a class="headerlink" href="#graph_catalog.constants.NbrTuple.vertex" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.constants.NbrTuple.weights">
+<span class="sig-name descname"><span class="pre">weights</span></span><a class="headerlink" href="#graph_catalog.constants.NbrTuple.weights" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 

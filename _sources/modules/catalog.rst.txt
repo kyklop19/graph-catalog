@@ -1,5 +1,5 @@
 catalog
 =======
 
-.. automodule:: graph_catalog.catalog
+.. automodule:: catalog
    :members:

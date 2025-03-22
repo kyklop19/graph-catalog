@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="cs">
+<html class="writer-html5" lang="cs" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moduly &mdash; Dokumentace pro graph-catalog 0.6.0</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+  <title>Moduly &mdash; Dokumentace pro graph-catalog 0.8.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=125d5c1c" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fc529db1" />
@@ -15,15 +15,15 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=6e651b49"></script>
-      <script src="../_static/doctools.js?v=888ff710"></script>
-      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-      <script src="../_static/translations.js?v=0275affc"></script>
+      <script src="../_static/documentation_options.js?v=8bd928dc"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=22e1c300"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Rejstřík" href="../genindex.html" />
     <link rel="search" title="Vyhledávání" href="../search.html" />
     <link rel="next" title="constants" href="constants.html" />
-    <link rel="prev" title="Dynamická reprezentace" href="../reprezentace/dynamicka_reprezentace.html" /> 
+    <link rel="prev" title="Katalog" href="../katalog/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,10 +50,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../pouziti.html">Použití</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problemy/problemy.html">Problémy teorie grafů</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reprezentace/index.html">Reprezentace grafů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../katalog/index.html">Katalog</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Moduly</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="graph.html">graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heap.html">heap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversion/index.html">conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/index.html">algorithms</a></li>
 </ul>
 </li>
 </ul>
@@ -83,13 +87,47 @@
            <div itemprop="articleBody">
              
   <section id="moduly">
-<h1>Moduly<a class="headerlink" href="#moduly" title="Permalink to this heading"></a></h1>
+<h1>Moduly<a class="headerlink" href="#moduly" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Obsah:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="constants.html">constants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="graph.html">graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html">constants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="constants.html#graph_catalog.constants.ConversionError"><code class="docutils literal notranslate"><span class="pre">ConversionError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html#graph_catalog.constants.EdgeTuple"><code class="docutils literal notranslate"><span class="pre">EdgeTuple</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html#graph_catalog.constants.NbrTuple"><code class="docutils literal notranslate"><span class="pre">NbrTuple</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">graph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#graph.DirectedEdge"><code class="docutils literal notranslate"><span class="pre">DirectedEdge</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#graph.DirectedHyperedge"><code class="docutils literal notranslate"><span class="pre">DirectedHyperedge</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#graph.Edge"><code class="docutils literal notranslate"><span class="pre">Edge</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#graph.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#graph.LoopEdge"><code class="docutils literal notranslate"><span class="pre">LoopEdge</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#graph.UndirectedEdge"><code class="docutils literal notranslate"><span class="pre">UndirectedEdge</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#graph.UndirectedHyperedge"><code class="docutils literal notranslate"><span class="pre">UndirectedHyperedge</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#graph.Vertex"><code class="docutils literal notranslate"><span class="pre">Vertex</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heap.html">heap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="catalog.html">catalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conversion/index.html">conversion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conversion/from_adj_list.html">from_adj_list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversion/from_adj_mat.html">from_adj_mat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversion/from_edge_list.html">from_edge_list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversion/from_inc_mat.html">from_inc_mat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversion/from_graph.html">from_graph</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms/index.html">algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/bipartite.html">bipartite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/connectivity.html">connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/cycles.html">cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/minimum_spanning_tree.html">minimum_spanning_tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/searching.html">searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/shotest_path.html">shotest_path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms/topological_ordering.html">topological_ordering</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -98,7 +136,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../reprezentace/dynamicka_reprezentace.html" class="btn btn-neutral float-left" title="Dynamická reprezentace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../katalog/index.html" class="btn btn-neutral float-left" title="Katalog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="constants.html" class="btn btn-neutral float-right" title="constants" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="cs">
+<html class="writer-html5" lang="cs" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>graph-catalog documentation &mdash; Dokumentace pro graph-catalog 0.6.0</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+  <title>graph-catalog documentation &mdash; Dokumentace pro graph-catalog 0.8.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-codeautolink.css?v=125d5c1c" />
       <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=fc529db1" />
@@ -15,10 +15,11 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=6e651b49"></script>
-      <script src="_static/doctools.js?v=888ff710"></script>
-      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
-      <script src="_static/translations.js?v=0275affc"></script>
+      <script src="_static/documentation_options.js?v=8bd928dc"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=22e1c300"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Rejstřík" href="genindex.html" />
     <link rel="search" title="Vyhledávání" href="search.html" />
@@ -49,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pouziti.html">Použití</a></li>
 <li class="toctree-l1"><a class="reference internal" href="problemy/problemy.html">Problémy teorie grafů</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reprezentace/index.html">Reprezentace grafů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="katalog/index.html">Katalog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/index.html">Moduly</a></li>
 </ul>
 
@@ -77,7 +79,7 @@
            <div itemprop="articleBody">
              
   <section id="graph-catalog-documentation">
-<h1>graph-catalog documentation<a class="headerlink" href="#graph-catalog-documentation" title="Permalink to this heading"></a></h1>
+<h1>graph-catalog documentation<a class="headerlink" href="#graph-catalog-documentation" title="Link to this heading"></a></h1>
 <p><strong>graph-catalog</strong> je knihovna pro výuku teorie grafů. Snaží se pro různé
 problémy s grafy poskytnout ukázkové funkce, které daný problém řeší. Navíc
 obsahuje katalog grafů, na kterých je možné názorně ukázat a řešit daný problém.</p>
@@ -88,6 +90,7 @@ pomocí sady funkcí pro převod.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pouziti.html">Použití</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pouziti.html#nacteni-grafu-z-katalogu">Načtení grafu z katalogu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pouziti.html#prevody-grafu-mezi-reprezentacemi">Převody grafů mezi reprezentacemi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pouziti.html#ukazkove-funkce">Ukázkové funkce</a></li>
 </ul>
 </li>
@@ -100,10 +103,16 @@ pomocí sady funkcí pro převod.</p>
 <li class="toctree-l2"><a class="reference internal" href="reprezentace/dynamicka_reprezentace.html">Dynamická reprezentace</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="katalog/index.html">Katalog</a><ul class="simple">
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="modules/index.html">Moduly</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="modules/constants.html">constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules/graph.html">graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/heap.html">heap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules/catalog.html">catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/conversion/index.html">conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/algorithms/index.html">algorithms</a></li>
 </ul>
 </li>
 </ul>
