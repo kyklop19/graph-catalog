@@ -2,7 +2,7 @@ from collections import deque
 from copy import deepcopy
 from math import inf
 
-from constants import EdgeList, EdgeTuple
+from graph_catalog.constants import EdgeList, EdgeTuple
 
 
 def find_minimum_spanning_tree(

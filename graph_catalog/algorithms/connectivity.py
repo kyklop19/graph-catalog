@@ -1,5 +1,5 @@
-from algorithms.searching import dfs
-from constants import AdjList
+from graph_catalog.algorithms.searching import dfs
+from graph_catalog.constants import AdjList
 
 
 def count_components(graph: AdjList) -> int:

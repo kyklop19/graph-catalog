@@ -3,7 +3,7 @@ from enum import Flag, IntEnum, auto
 from math import inf
 from typing import Iterator
 
-from constants import AdjList
+from graph_catalog.constants import AdjList
 
 DFSStates = namedtuple("DFSStates", ("parents", "opening_orders", "closing_orders"))
 BFSStates = namedtuple("BFSStates", ("parents", "distances"))

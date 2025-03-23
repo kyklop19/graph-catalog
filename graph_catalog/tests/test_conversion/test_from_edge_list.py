@@ -1,12 +1,12 @@
 import unittest
 
-from conversion.from_edge_list import (
+from graph_catalog.conversion.from_edge_list import (
     EdgeList2AdjList,
     EdgeList2AdjMat,
     EdgeList2Graph,
     EdgeList2IncMat,
 )
-from testing_data import graphs
+from graph_catalog.tests.testing_data import graphs
 
 
 class TestFromEdgeList(unittest.TestCase):

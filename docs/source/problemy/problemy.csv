@@ -1,9 +1,9 @@
 Problém,Funkce,Grafy
-DFS a BFS
-Určení souvislosti
-Hledání cyklů
-Určení bipartity
-Hledání nejkratší cesty
-Hledání kostry
-Hledání komponent souvislosti
-Hledání topologického uspořádání
+DFS a BFS,:doc:`/modules/algorithms/searching`,:doc:`/katalog/prohledavani`
+Určení souvislosti,:doc:`/modules/algorithms/connectivity`,:doc:`/katalog/souvislost`
+Hledání cyklů,:doc:`/modules/algorithms/cycles`,:doc:`/katalog/cykly`
+Určení bipartity,:doc:`/modules/algorithms/bipartite`,:doc:`/katalog/bipartita`
+Hledání nejkratší cesty,:doc:`/modules/algorithms/shortest_path`,:doc:`/katalog/nejkratsi_cesta`
+Hledání kostry,:doc:`/modules/algorithms/minimum_spanning_tree`,:doc:`/katalog/minimalni_kostra`
+Hledání komponent souvislosti,:doc:`/modules/algorithms/connectivity`,:doc:`/katalog/souvislost`
+Hledání topologického uspořádání,:doc:`/modules/algorithms/topological_ordering`,:doc:`/katalog/topologicke_usporadani`

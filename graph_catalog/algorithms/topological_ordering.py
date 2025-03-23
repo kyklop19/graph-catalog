@@ -1,5 +1,5 @@
-from algorithms.searching import DFSOrder, dfs
-from constants import AdjList
+from graph_catalog.algorithms.searching import DFSOrder, dfs
+from graph_catalog.constants import AdjList
 
 
 def find_topological_ordering(graph: AdjList) -> list[int] | None:

@@ -1,5 +1,6 @@
 from enum import Enum, auto
 
+from catalog import SaveOpts, save
 from constants import ROOT_PATH
 from conversion.from_inc_mat import (
     IncMat2AdjList,
@@ -137,6 +138,16 @@ class CommandExecutor:
                 self.default_weight_name = m[1]
             case r"w (\d+) (\d+)" as m:
                 self.add_edge_weight(int(m[1]), int(m[2]))
+            case r"save ([\w_]+)(?: -([co]))? (.+)" as m:
+                match m[2]:
+                    case "o":
+                        opts = SaveOpts.OVERWRITE_GRAPH
+                    case "c":
+                        opts = SaveOpts.CREATE_NEW_FILE
+                    case __:
+                        opts = None
+                save(m[3], m[1], self.graph, opts=opts)
+
             case __:
                 print("unsupported cmd")
         return quit

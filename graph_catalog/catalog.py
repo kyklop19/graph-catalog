@@ -1,95 +1,189 @@
+import re
+from contextlib import contextmanager
+from enum import Enum, auto
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterator
 
 import yaml
-from constants import CATALOG_PATH, IncMat
+
+from graph_catalog.constants import CATALOG_PATH, IncMat, OverwriteError
+
+ANONYMOUS_METADATA_FIELDS = ("name", "number", "description")
 
 
-def load(id: str):
-    """test
+class SaveOpts(Enum):
+    CREATE_NEW_FILE = auto()
+    OVERWRITE_GRAPH = auto()
 
-    Args:
-        name (str): test
-    """
 
-    index_name = "name_index"
-
-    with open(CATALOG_PATH / f"{index_name}.yaml", "r") as index_file:
-        index = yaml.safe_load(index_file.read())
-
-    filename = index[id]["filename"]
-    key = index[id]["key"]
-
+def _load_from_file(filename: str, key: str) -> dict[str, Any]:
     with open(CATALOG_PATH / "graphs" / f"{filename}.yaml", "r") as graphs_file:
         graphs = yaml.safe_load(graphs_file.read())
 
     graph = graphs[key]
-    del graph["name"]
-    del graph["number"]
-
-    # with open(CATALOG_PATH / "catalog.yaml", "r") as catalog:
-    #     data = yaml.safe_load(catalog.read())
-
-    # res = None
-    # for record in data:
-    #     if record["name"] == id:
-    #         res = record
-    #         break
 
     return graph
 
 
-# def add_to_yaml(path: Path, record: dict[str, Any]):
-#     with open(path, "r+") as f:
-#         data = yaml.safe_load(f.read())
-#         f.seek(0)
-#         # if data is None:
-#         #     data = []
-#         data[ids[0]] = {"filename": filename, "key": key}
-#         index.write(yaml.safe_dump(data))
+@contextmanager
+def _open_catalog_yaml(path: Path, **opts) -> Iterator[dict[str, Any]]:
+    with open(path, "r+") as yaml_file:
+        data = yaml.safe_load(yaml_file.read())
+        yaml_file.seek(0)
+        if data is None:
+            data = {}
+        yield data
+        yaml_file.truncate(0)
+        yaml_file.write(yaml.safe_dump(data, **opts))
+
+
+def load_with_name(name: str) -> dict[str, Any]:
+    """Loads graph and all of it's metadata using it's name
+
+    Args:
+        name (str): Name of the graph
+
+    Raises:
+        KeyError: Raises when graph with such name doesn't exist
+
+    Returns:
+        dict[str, Any]: Dictionary with graph in `IncMat` representation and all of it's metadata
+    """
+
+    with _open_catalog_yaml(CATALOG_PATH / "name_index.yaml") as index:
+        if name not in index:
+            raise KeyError("Graph with such name doesn't exist")
+        else:
+            filename = index[name]["filename"]
+            key = index[name]["key"]
+
+    graph = _load_from_file(filename, key)
+
+    return graph
+
+
+def load_with_number(number: str) -> dict[str, Any]:
+    """Loads graph and metadata from catalog using graph's number
+
+    To make loading with number anonymous, the function doesn't deletes
+    anonymous fields from the metadata before returning.
+
+    Args:
+        number (str): Number of the graph in format "<number>.<number>"
+
+    Raises:
+        KeyError: Raises when `number` is in a wrong format
+        KeyError: Raises when graph with such `number` doesn't exist
+
+    Returns:
+        dict[str, Any]: Dictionary with the graph in `IncMat` representation and
+        it's metadata except the anonymous fields
+    """
+
+    if re.fullmatch(r"\d+\.\d+", number) is None:
+        raise KeyError("The number of graph is in a wrong format")
+
+    with _open_catalog_yaml(CATALOG_PATH / "number_index.yaml") as index:
+        if number not in index:
+            raise KeyError("Graph with such number doesn't exist")
+        else:
+            filename = index[number]["filename"]
+            key = index[number]["key"]
+
+    graph = _load_from_file(filename, key)
+    for field in ANONYMOUS_METADATA_FIELDS:
+        graph.pop(field, None)
+
+    return graph
 
 
 def save(
-    ids: tuple[str, str], filename: str, graph: IncMat, metadata: dict[str, Any] = {}
-):
+    name: str,
+    filename: str,
+    graph: IncMat,
+    metadata: dict[str, Any] = {},
+    opts: SaveOpts | None = None,
+) -> str:
+    """Save `graph` as `IncMat` to the catalog
 
-    record = metadata | {
-        "name": ids[0],
-        "number": ids[1],
-        "graph": graph,
-    }
+    The `graph` is saved under the name of `name` into the file `filename.yaml`.
 
-    # with open(CATALOG_PATH / "catalog.yaml", "r+") as catalog:
-    #     data = yaml.safe_load(catalog.read())
-    #     if data is None:
-    #         data = []
-    #     data.append(record)
-    #     catalog.write(yaml.safe_dump(data, default_flow_style=None, sort_keys=False))
-    key = str(ids[1]) + ids[0]
+    `metadata` are saved with graph into `filename.yaml`
 
-    with open(CATALOG_PATH / "name_index.yaml", "r+") as index:
-        data = yaml.safe_load(index.read())
-        index.seek(0)
-        if data is None:
-            data = {}
-        data[ids[0]] = {"filename": filename, "key": key}
-        index.write(yaml.safe_dump(data))
+    `number` of the graph is generated and returned.
 
+    By default graph can't be overwritten resp. can't be written into
+    nonexisting file. By setting `opts` to `SaveOpts.OVERWRITE_GRAPH` resp.
+    `SaveOpts.CREATE_NEW_FILE` this behavior can be turned off.
+
+    Args:
+        name (str): Name of the graph
+        filename (str): Name of the file where graph is saved (without the extension)
+        graph (IncMat): Graph as `IncMat`
+        metadata (dict[str, Any], optional): Dictionary with field names as keys and any data as values. Defaults to {}.
+        opts (SaveOpts, optional): Options to either allow overwriting a graph or creating new graph file. Defaults to None.
+
+    Raises:
+        FileNotFoundError: Raises if `filename.yaml` doesn't exists unless
+            `SaveOpts.CREATE_NEW_FILE` is set as option
+        OverwriteError: Raises if `name` graph already exists unless `SaveOpts.OVERWRITE_GRAPH` is set as
+            option
+
+    Returns:
+        str: The `number` of the graph automatically generated based of `filename.yaml` and number of already saved files in it
+    """
     GRAPHS_PATH = CATALOG_PATH / "graphs" / f"{filename}.yaml"
 
+    create_new_file = False
     if not GRAPHS_PATH.exists():
-        raise FileNotFoundError(f'Graph file "{filename}" doesn\'t exist.')
+        if SaveOpts.CREATE_NEW_FILE is not opts:
+            raise FileNotFoundError(f'Graph file "{filename}" doesn\'t exist.')
+        else:
+            create_new_file = True
 
-    with open(GRAPHS_PATH, "r+") as graphs_file:
-        graphs = yaml.safe_load(graphs_file.read())
-        graphs_file.seek(0)
-        if graphs is None:
-            graphs = {}
+    if create_new_file:
+        with open(GRAPHS_PATH, "w") as graph_file:
+            graph_file.write(yaml.safe_dump({}))
+
+    with _open_catalog_yaml(CATALOG_PATH / "graphs_files_index.yaml") as records:
+        if create_new_file:
+            records[filename] = len(records)
+        file_number = records[filename]
+
+    overwriting = False
+    with _open_catalog_yaml(CATALOG_PATH / "name_index.yaml") as records:
+        if name in records:
+            if SaveOpts.OVERWRITE_GRAPH is not opts:
+                raise OverwriteError(
+                    "Can't overwrite already existing graph unless explicitly enabling overwrite option"
+                )
+            else:
+                key = records[name]["key"]
+                overwriting = True
+
+    with _open_catalog_yaml(
+        GRAPHS_PATH, default_flow_style=None, sort_keys=False
+    ) as graphs:
+        if not overwriting:
+            num_of_graphs = len(graphs)
+            number = f"{file_number}.{num_of_graphs}"
+
+            key = number + name.replace(" ", "_")
+        else:
+            number = graphs[key]["number"]
+
+        record = metadata | {
+            "name": name,
+            "number": number,
+            "graph": graph,
+        }
+
         graphs[key] = record
-        graphs_file.write(yaml.safe_dump(graphs))
 
+    with _open_catalog_yaml(CATALOG_PATH / "name_index.yaml") as records:
+        records[name] = {"filename": filename, "key": key}
 
-# save("test", [[1, 2], [3, 4]])
-# print(load("test2"))
-# save(("PATH", 123), "cycles", [[]])
-# print(load("PATH"))
+    with _open_catalog_yaml(CATALOG_PATH / "number_index.yaml") as records:
+        records[number] = {"filename": filename, "key": key}
+
+    return number

@@ -1,8 +1,8 @@
 import unittest
 
-from algorithms.cycles import has_cycle
-from constants import NbrTuple
-from testing_data import BACK_EDGE, CROSS_EDGE, FORWARD_EDGE
+from graph_catalog.algorithms.cycles import has_cycle
+from graph_catalog.constants import NbrTuple
+from graph_catalog.tests.testing_data import BACK_EDGE, CROSS_EDGE, FORWARD_EDGE
 
 EMPTY = [[], [], [], [], [], [], []]
 

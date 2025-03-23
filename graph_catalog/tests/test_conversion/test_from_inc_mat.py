@@ -1,12 +1,12 @@
 import unittest
 
-from conversion.from_inc_mat import (
+from graph_catalog.conversion.from_inc_mat import (
     IncMat2AdjList,
     IncMat2AdjMat,
     IncMat2EdgeList,
     IncMat2Graph,
 )
-from testing_data import graphs
+from graph_catalog.tests.testing_data import graphs
 
 
 class TestFromIncMat(unittest.TestCase):

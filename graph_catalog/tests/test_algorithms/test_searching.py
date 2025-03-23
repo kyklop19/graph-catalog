@@ -1,8 +1,8 @@
 import unittest
 
-from algorithms.searching import DFSStates, dfs, dfs_component
-from constants import NbrTuple
-from testing_data import SEARCHING_GRAPHS
+from graph_catalog.algorithms.searching import DFSStates, dfs, dfs_component
+from graph_catalog.constants import NbrTuple
+from graph_catalog.tests.testing_data import SEARCHING_GRAPHS
 
 
 class TestSearching(unittest.TestCase):

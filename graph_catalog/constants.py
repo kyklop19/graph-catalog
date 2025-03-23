@@ -27,3 +27,9 @@ class ConversionError(Exception):
     """Raised if conversion between two graph representations isn't supported"""
 
     pass
+
+
+class OverwriteError(Exception):
+    """Raised if trying to overwrite existing graph without explicitly enabling overwrite option"""
+
+    pass

@@ -1,7 +1,10 @@
 import unittest
 
-from algorithms.connectivity import count_components, divide_into_components
-from constants import NbrTuple
+from graph_catalog.algorithms.connectivity import (
+    count_components,
+    divide_into_components,
+)
+from graph_catalog.constants import NbrTuple
 
 EMPTY_GRAPH = [[], [], [], [], [], []]
 

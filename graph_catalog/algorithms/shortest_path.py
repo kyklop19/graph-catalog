@@ -1,8 +1,8 @@
 from math import inf
 
-from algorithms.searching import bfs_component
-from constants import AdjList, Weights
-from heap import Heap
+from graph_catalog.algorithms.searching import bfs_component
+from graph_catalog.constants import AdjList, Weights
+from graph_catalog.heap import Heap
 
 
 def backtrack(parents: list[int], end_vertex: int) -> list[int]:

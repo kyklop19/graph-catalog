@@ -3,8 +3,8 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Iterator
 
-from constants import Weights
-from utils import binary_search
+from graph_catalog.constants import Weights
+from graph_catalog.utils import binary_search
 
 
 class Vertex:

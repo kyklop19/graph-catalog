@@ -13,7 +13,9 @@
         "-s",
         "./graph_catalog/tests",
         "-p",
-        "test_*.py"
+        "test_*.py",
+        "-t",
+        "."
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": true

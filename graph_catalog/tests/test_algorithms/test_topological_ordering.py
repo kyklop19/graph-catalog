@@ -1,8 +1,8 @@
 import unittest
 
-from algorithms.topological_ordering import find_topological_ordering
-from constants import NbrTuple
-from testing_data import BACK_EDGE, CROSS_EDGE, FORWARD_EDGE
+from graph_catalog.algorithms.topological_ordering import find_topological_ordering
+from graph_catalog.constants import NbrTuple
+from graph_catalog.tests.testing_data import BACK_EDGE, CROSS_EDGE, FORWARD_EDGE
 
 EMPTY = [[], [], [], [], [], []]
 
