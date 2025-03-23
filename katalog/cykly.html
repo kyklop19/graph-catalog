@@ -3,9 +3,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="cs" data-content_root="../">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Přehled: kód modulu &mdash; Dokumentace pro graph-catalog 0.9.0</title>
+  <title>Grafy – cykly &mdash; Dokumentace pro graph-catalog 0.9.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=125d5c1c" />
@@ -20,7 +21,9 @@
       <script src="../_static/translations.js?v=22e1c300"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Rejstřík" href="../genindex.html" />
-    <link rel="search" title="Vyhledávání" href="../search.html" /> 
+    <link rel="search" title="Vyhledávání" href="../search.html" />
+    <link rel="next" title="Grafy – topologické uspořádání" href="topologicke_usporadani.html" />
+    <link rel="prev" title="Grafy – bipartita" href="bipartita.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,11 +46,20 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Obsah:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../pouziti.html">Použití</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problemy/problemy.html">Problémy teorie grafů</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reprezentace/index.html">Reprezentace grafů</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../katalog/index.html">Katalog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Katalog</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="prohledavani.html">Grafy – prohledávání</a></li>
+<li class="toctree-l2"><a class="reference internal" href="souvislost.html">Grafy – souvislost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bipartita.html">Grafy – bipartita</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Grafy – cykly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topologicke_usporadani.html">Grafy – topologické uspořádání</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nejkratsi_cesta.html">Grafy – nejkratší cesta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minimalni_kostra.html">Grafy – minimální kostra</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/index.html">Moduly</a></li>
 </ul>
 
@@ -65,8 +77,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Přehled: kód modulu</li>
+          <li class="breadcrumb-item"><a href="index.html">Katalog</a></li>
+      <li class="breadcrumb-item active">Grafy – cykly</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/katalog/cykly.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -74,21 +88,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Všechny moduly s dostupným kódem</h1>
-<ul><li><a href="algorithms/bipartite.html">algorithms.bipartite</a></li>
-<li><a href="algorithms/connectivity.html">algorithms.connectivity</a></li>
-<li><a href="algorithms/minimum_spanning_tree.html">algorithms.minimum_spanning_tree</a></li>
-<li><a href="algorithms/searching.html">algorithms.searching</a></li>
-<li><a href="algorithms/topological_ordering.html">algorithms.topological_ordering</a></li>
-<li><a href="conversion/from_adj_list.html">conversion.from_adj_list</a></li>
-<li><a href="conversion/from_graph.html">conversion.from_graph</a></li>
-<li><a href="graph.html">graph</a></li>
-<li><a href="graph_catalog/constants.html">graph_catalog.constants</a></li>
-</ul>
+  <section id="grafy-cykly">
+<h1>Grafy – cykly<a class="headerlink" href="#grafy-cykly" title="Link to this heading"></a></h1>
+</section>
+
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bipartita.html" class="btn btn-neutral float-left" title="Grafy – bipartita" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="topologicke_usporadani.html" class="btn btn-neutral float-right" title="Grafy – topologické uspořádání" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

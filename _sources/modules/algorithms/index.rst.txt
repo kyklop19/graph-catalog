@@ -10,5 +10,5 @@ algorithms
    cycles
    minimum_spanning_tree
    searching
-   shotest_path
+   shortest_path
    topological_ordering

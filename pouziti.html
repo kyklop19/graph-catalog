@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Použití — Dokumentace pro graph-catalog 0.8.0</title>
+<title>Použití — Dokumentace pro graph-catalog 0.9.0</title>
 <link href="_static/pygments.css?v=80d5e7a1" rel="stylesheet" type="text/css"/>
 <link href="_static/css/theme.css?v=e59714d7" rel="stylesheet" type="text/css"/>
 <link href="_static/sphinx-codeautolink.css?v=125d5c1c" rel="stylesheet" type="text/css"/>
-<link href="_static/css/custom.css?v=fc529db1" rel="stylesheet" type="text/css"/>
+<link href="_static/css/custom.css?v=19bb19ed" rel="stylesheet" type="text/css"/>
 <script src="_static/jquery.js?v=5d32c60e"></script>
 <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-<script src="_static/documentation_options.js?v=8bd928dc"></script>
+<script src="_static/documentation_options.js?v=fa0c6285"></script>
 <script src="_static/doctools.js?v=9bcbadda"></script>
 <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
 <script src="_static/translations.js?v=22e1c300"></script>
@@ -76,9 +76,15 @@
 <h1>Použití<a class="headerlink" href="#pouziti" title="Link to this heading"></a></h1>
 <section id="nacteni-grafu-z-katalogu">
 <h2>Načtení grafu z katalogu<a class="headerlink" href="#nacteni-grafu-z-katalogu" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graph_catalog.catalog</span> <span class="kn">import</span> <span class="n">load</span>
+<p>Knihovna poskytuje vestavěný katalog grafů, kde každý graf je identifikován
+jedinečným jménem resp. číslem ve formátu „&lt;číslo&gt;.&lt;číslo&gt;“. Pro načítání grafů
+dle jednotlivých identifikátorů slouží funkce <code class="xref py py-func docutils literal notranslate"><span class="pre">catalog.load_with_name()</span></code>
+resp. <code class="xref py py-func docutils literal notranslate"><span class="pre">catalog.load_with_number()</span></code>. Obě vracejí <cite>dict</cite> s grafem a dalšími
+daty o něm. Ovšem <code class="xref py py-func docutils literal notranslate"><span class="pre">catalog.load_with_number()</span></code> nevrací všechna data, aby
+graf zůstal více anonymní.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graph_catalog.catalog</span> <span class="kn">import</span> <span class="n">load_with_name</span><span class="p">,</span> <span class="n">load_with_number</span>
 
-<span class="n">load</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">load_with_name</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
