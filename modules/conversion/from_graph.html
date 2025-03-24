@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>from_graph &mdash; Dokumentace pro graph-catalog 0.9.0</title>
+  <title>from_graph &mdash; Dokumentace pro graph-catalog 0.9.1</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/sphinx-codeautolink.css?v=125d5c1c" />
@@ -15,7 +15,7 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=fa0c6285"></script>
+      <script src="../../_static/documentation_options.js?v=5e74e69c"></script>
       <script src="../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../_static/translations.js?v=22e1c300"></script>
@@ -62,10 +62,10 @@
 <li class="toctree-l3"><a class="reference internal" href="from_edge_list.html">from_edge_list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="from_inc_mat.html">from_inc_mat</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">from_graph</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#conversion.from_graph.Graph2AdjList"><code class="docutils literal notranslate"><span class="pre">Graph2AdjList()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#conversion.from_graph.Graph2AdjMat"><code class="docutils literal notranslate"><span class="pre">Graph2AdjMat()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#conversion.from_graph.Graph2EdgeList"><code class="docutils literal notranslate"><span class="pre">Graph2EdgeList()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#conversion.from_graph.Graph2IncMat"><code class="docutils literal notranslate"><span class="pre">Graph2IncMat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.conversion.from_graph.Graph2AdjList"><code class="docutils literal notranslate"><span class="pre">Graph2AdjList()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.conversion.from_graph.Graph2AdjMat"><code class="docutils literal notranslate"><span class="pre">Graph2AdjMat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.conversion.from_graph.Graph2EdgeList"><code class="docutils literal notranslate"><span class="pre">Graph2EdgeList()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.conversion.from_graph.Graph2IncMat"><code class="docutils literal notranslate"><span class="pre">Graph2IncMat()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -101,15 +101,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-conversion.from_graph">
-<span id="from-graph"></span><h1>from_graph<a class="headerlink" href="#module-conversion.from_graph" title="Link to this heading"></a></h1>
+  <section id="module-graph_catalog.conversion.from_graph">
+<span id="from-graph"></span><h1>from_graph<a class="headerlink" href="#module-graph_catalog.conversion.from_graph" title="Link to this heading"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="conversion.from_graph.Graph2AdjList">
-<span class="sig-prename descclassname"><span class="pre">conversion.from_graph.</span></span><span class="sig-name descname"><span class="pre">Graph2AdjList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../graph.html#graph.Graph" title="graph.Graph"><span class="pre">Graph</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AdjList</span></span></span><a class="reference internal" href="../../_modules/conversion/from_graph.html#Graph2AdjList"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#conversion.from_graph.Graph2AdjList" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="graph_catalog.conversion.from_graph.Graph2AdjList">
+<span class="sig-prename descclassname"><span class="pre">graph_catalog.conversion.from_graph.</span></span><span class="sig-name descname"><span class="pre">Graph2AdjList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../graph.html#graph_catalog.graph.Graph" title="graph_catalog.graph.Graph"><span class="pre">Graph</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AdjList</span></span></span><a class="reference internal" href="../../_modules/graph_catalog/conversion/from_graph.html#Graph2AdjList"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.conversion.from_graph.Graph2AdjList" title="Link to this definition"></a></dt>
 <dd><p>Convert graph from instance of Graph to adjacency list</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametry<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="../graph.html#graph.Graph" title="graph.Graph"><em>Graph</em></a>) – Graph as instance of Graph without hyperedges</p>
+<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="../graph.html#graph_catalog.graph.Graph" title="graph_catalog.graph.Graph"><em>Graph</em></a>) – Graph as instance of Graph without hyperedges</p>
 </dd>
 <dt class="field-even">Vyvolá<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="../constants.html#graph_catalog.constants.ConversionError" title="graph_catalog.constants.ConversionError"><strong>ConversionError</strong></a> – If graph contains hyperedges</p>
@@ -124,12 +124,12 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="conversion.from_graph.Graph2AdjMat">
-<span class="sig-prename descclassname"><span class="pre">conversion.from_graph.</span></span><span class="sig-name descname"><span class="pre">Graph2AdjMat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../graph.html#graph.Graph" title="graph.Graph"><span class="pre">Graph</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AdjMat</span></span></span><a class="reference internal" href="../../_modules/conversion/from_graph.html#Graph2AdjMat"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#conversion.from_graph.Graph2AdjMat" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="graph_catalog.conversion.from_graph.Graph2AdjMat">
+<span class="sig-prename descclassname"><span class="pre">graph_catalog.conversion.from_graph.</span></span><span class="sig-name descname"><span class="pre">Graph2AdjMat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../graph.html#graph_catalog.graph.Graph" title="graph_catalog.graph.Graph"><span class="pre">Graph</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AdjMat</span></span></span><a class="reference internal" href="../../_modules/graph_catalog/conversion/from_graph.html#Graph2AdjMat"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.conversion.from_graph.Graph2AdjMat" title="Link to this definition"></a></dt>
 <dd><p>Convert graph from instance of Graph to adjacency matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametry<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="../graph.html#graph.Graph" title="graph.Graph"><em>Graph</em></a>) – Graph as instance of Graph without hyperedges</p>
+<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="../graph.html#graph_catalog.graph.Graph" title="graph_catalog.graph.Graph"><em>Graph</em></a>) – Graph as instance of Graph without hyperedges</p>
 </dd>
 <dt class="field-even">Vyvolá<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="../constants.html#graph_catalog.constants.ConversionError" title="graph_catalog.constants.ConversionError"><strong>ConversionError</strong></a> – If graph contains hyperedges</p>
@@ -144,12 +144,12 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="conversion.from_graph.Graph2EdgeList">
-<span class="sig-prename descclassname"><span class="pre">conversion.from_graph.</span></span><span class="sig-name descname"><span class="pre">Graph2EdgeList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../graph.html#graph.Graph" title="graph.Graph"><span class="pre">Graph</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">EdgeList</span></span></span><a class="reference internal" href="../../_modules/conversion/from_graph.html#Graph2EdgeList"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#conversion.from_graph.Graph2EdgeList" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="graph_catalog.conversion.from_graph.Graph2EdgeList">
+<span class="sig-prename descclassname"><span class="pre">graph_catalog.conversion.from_graph.</span></span><span class="sig-name descname"><span class="pre">Graph2EdgeList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../graph.html#graph_catalog.graph.Graph" title="graph_catalog.graph.Graph"><span class="pre">Graph</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">EdgeList</span></span></span><a class="reference internal" href="../../_modules/graph_catalog/conversion/from_graph.html#Graph2EdgeList"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.conversion.from_graph.Graph2EdgeList" title="Link to this definition"></a></dt>
 <dd><p>Convert graph from instance of <cite>Graph</cite> to <cite>EdgeList</cite></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametry<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="../graph.html#graph.Graph" title="graph.Graph"><em>Graph</em></a>) – Graph as instance of <cite>Graph</cite> without hyperedges</p>
+<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="../graph.html#graph_catalog.graph.Graph" title="graph_catalog.graph.Graph"><em>Graph</em></a>) – Graph as instance of <cite>Graph</cite> without hyperedges</p>
 </dd>
 <dt class="field-even">Vyvolá<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="../constants.html#graph_catalog.constants.ConversionError" title="graph_catalog.constants.ConversionError"><strong>ConversionError</strong></a> – If graph contains hyperedges</p>
@@ -164,13 +164,13 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="conversion.from_graph.Graph2IncMat">
-<span class="sig-prename descclassname"><span class="pre">conversion.from_graph.</span></span><span class="sig-name descname"><span class="pre">Graph2IncMat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../graph.html#graph.Graph" title="graph.Graph"><span class="pre">Graph</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">IncMat</span></span></span><a class="reference internal" href="../../_modules/conversion/from_graph.html#Graph2IncMat"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#conversion.from_graph.Graph2IncMat" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="graph_catalog.conversion.from_graph.Graph2IncMat">
+<span class="sig-prename descclassname"><span class="pre">graph_catalog.conversion.from_graph.</span></span><span class="sig-name descname"><span class="pre">Graph2IncMat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../graph.html#graph_catalog.graph.Graph" title="graph_catalog.graph.Graph"><span class="pre">Graph</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">IncMat</span></span></span><a class="reference internal" href="../../_modules/graph_catalog/conversion/from_graph.html#Graph2IncMat"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.conversion.from_graph.Graph2IncMat" title="Link to this definition"></a></dt>
 <dd><p>Convert graph from instance of <cite>Graph</cite> to <cite>IncMat</cite></p>
 <p>Graph can contain hyperedges.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametry<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="../graph.html#graph.Graph" title="graph.Graph"><em>Graph</em></a>) – Graph as instance of <cite>Graph</cite></p>
+<dd class="field-odd"><p><strong>graph</strong> (<a class="reference internal" href="../graph.html#graph_catalog.graph.Graph" title="graph_catalog.graph.Graph"><em>Graph</em></a>) – Graph as instance of <cite>Graph</cite></p>
 </dd>
 <dt class="field-even">Vrací<span class="colon">:</span></dt>
 <dd class="field-even"><p>Graph as <cite>IncMat</cite></p>

@@ -1,5 +1,5 @@
 shortest_path
 =============
 
-.. automodule:: algorithms.shortest_path
+.. automodule:: graph_catalog.algorithms.shortest_path
    :members:

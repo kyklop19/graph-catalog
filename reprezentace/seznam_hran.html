@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seznam hran &mdash; Dokumentace pro graph-catalog 0.9.0</title>
+  <title>Seznam hran &mdash; Dokumentace pro graph-catalog 0.9.1</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=125d5c1c" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=fa0c6285"></script>
+      <script src="../_static/documentation_options.js?v=5e74e69c"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=22e1c300"></script>
@@ -88,7 +88,18 @@
              
   <section id="seznam-hran">
 <h1>Seznam hran<a class="headerlink" href="#seznam-hran" title="Link to this heading"></a></h1>
-<p><strong>Seznam hran</strong> reprezentuje graf jako seznam trojic, které reprezentují hrany.</p>
+<p><strong>Seznam hran</strong> reprezentuje graf jako seznam trojic, které reprezentují hrany.
+Tyto trojice jsou implementovány pomocí <cite>namedtuple</cite>
+<a class="reference internal" href="../modules/constants.html#graph_catalog.constants.EdgeTuple" title="graph_catalog.constants.EdgeTuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeTuple</span></code></a>. Z toho první dva prvky jsou vrcholy
+hrany (v orientovaném grafu je první počáteční vrchol a druhý koncový). Třetí
+prvek je potom ohodnocení hrany.</p>
+<p>Povšimněme si, že tato reprezentace není schopná reprezentovat izolované vrcholy
+grafu, protože ukládá pouze hrany a do izolovaného vrcholu žádné nevedou.</p>
+<p>Aby jsme odlišili orientované resp. neorientované hrany obsahuje každá hrana
+ohodnocení <cite>„directed“</cite> typu <cite>bool</cite> (hrany tedy mají hodnoty <cite>True</cite> resp.
+<cite>False</cite>). Smyčky zde uvažujeme jako orientované hrany.</p>
+<p>Aby nebyli příklady příliš zahlceny značíme v níže uvedené tabulce
+<a class="reference internal" href="../modules/constants.html#graph_catalog.constants.EdgeTuple" title="graph_catalog.constants.EdgeTuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeTuple</span></code></a> jako normální tuply tedy kulatými závorkami.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Reprezentace druhů grafů</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <colgroup>
@@ -104,16 +115,17 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Neorientovaný</p></td>
-<td></td>
+<td><p>Neorientované hrany mají ohodnocení <cite>„directed“</cite> rovno <cite>False</cite>.</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>Orientovaný</p></td>
-<td></td>
+<td><p>První vrchol je počáteční a druhý koncový. Neorientované hrany mají ohodnocení <cite>„directed“</cite> rovno <cite>True</cite>.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Obecný (smíšený)</p></td>
+<td><p>V tomto případě je obecný graf kombinace pravidel pro orientované a
+neorientované grafy.</p></td>
 <td></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">[(1,2,</span> <span class="pre">False),(3,4,</span> <span class="pre">True)]</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>Multigraf</p></td>
 <td></td>

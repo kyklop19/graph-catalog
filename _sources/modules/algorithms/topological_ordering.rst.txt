@@ -1,5 +1,5 @@
 topological_ordering
 ====================
 
-.. automodule:: algorithms.topological_ordering
+.. automodule:: graph_catalog.algorithms.topological_ordering
    :members:

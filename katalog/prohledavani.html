@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grafy – prohledávání &mdash; Dokumentace pro graph-catalog 0.9.0</title>
+  <title>Grafy – prohledávání &mdash; Dokumentace pro graph-catalog 0.9.1</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=125d5c1c" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=fa0c6285"></script>
+      <script src="../_static/documentation_options.js?v=5e74e69c"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=22e1c300"></script>
@@ -53,6 +53,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Katalog</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Grafy – prohledávání</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#binarni-strom-s-vetvenim-a-dlouhou-vetvi">Binární strom s větvením a dlouhou větví</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vetvena-kruznice">Větvená kružnice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strom-se-3-stromy">Strom se 3 stromy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nesouvily-s-kruznici-stromem-a-vrcholem">Nesouvilý s kružnicí, stromem a vrcholem</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="souvislost.html">Grafy – souvislost</a></li>
@@ -101,15 +104,75 @@
 <col style="width: 50.0%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>Name</p></td>
+<tr class="row-odd"><td><p><cite>name</cite></p></td>
 <td><p>binary tree with branching and long branch</p></td>
 </tr>
-<tr class="row-even"><td><p>Number</p></td>
+<tr class="row-even"><td><p><cite>number</cite></p></td>
 <td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>root</cite></p></td>
+<td><p>0</p></td>
 </tr>
 </tbody>
 </table>
 <a class="reference internal image-reference" href="../_images/binary_tree_with_branching_and_long_branch.png"><img alt="../_images/binary_tree_with_branching_and_long_branch.png" src="../_images/binary_tree_with_branching_and_long_branch.png" style="width: 600px;" />
+</a>
+</section>
+<section id="vetvena-kruznice">
+<h2>Větvená kružnice<a class="headerlink" href="#vetvena-kruznice" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><cite>name</cite></p></td>
+<td><p>branched cycle</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>number</cite></p></td>
+<td><p>1.1</p></td>
+</tr>
+</tbody>
+</table>
+<a class="reference internal image-reference" href="../_images/branched_cycle.png"><img alt="../_images/branched_cycle.png" src="../_images/branched_cycle.png" style="width: 600px;" />
+</a>
+</section>
+<section id="strom-se-3-stromy">
+<h2>Strom se 3 stromy<a class="headerlink" href="#strom-se-3-stromy" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><cite>name</cite></p></td>
+<td><p>forest with 3 trees</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>number</cite></p></td>
+<td><p>1.2</p></td>
+</tr>
+</tbody>
+</table>
+<a class="reference internal image-reference" href="../_images/forest_with_3_trees.png"><img alt="../_images/forest_with_3_trees.png" src="../_images/forest_with_3_trees.png" style="width: 600px;" />
+</a>
+</section>
+<section id="nesouvily-s-kruznici-stromem-a-vrcholem">
+<h2>Nesouvilý s kružnicí, stromem a vrcholem<a class="headerlink" href="#nesouvily-s-kruznici-stromem-a-vrcholem" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><cite>name</cite></p></td>
+<td><p>disconnected cycle, tree and vertex</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>number</cite></p></td>
+<td><p>1.3</p></td>
+</tr>
+</tbody>
+</table>
+<a class="reference internal image-reference" href="../_images/disconnected_cycle_tree_and_vertex.png"><img alt="../_images/disconnected_cycle_tree_and_vertex.png" src="../_images/disconnected_cycle_tree_and_vertex.png" style="width: 600px;" />
 </a>
 </section>
 </section>

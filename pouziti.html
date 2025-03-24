@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Použití — Dokumentace pro graph-catalog 0.9.0</title>
+<title>Použití — Dokumentace pro graph-catalog 0.9.1</title>
 <link href="_static/pygments.css?v=80d5e7a1" rel="stylesheet" type="text/css"/>
 <link href="_static/css/theme.css?v=e59714d7" rel="stylesheet" type="text/css"/>
 <link href="_static/sphinx-codeautolink.css?v=125d5c1c" rel="stylesheet" type="text/css"/>
 <link href="_static/css/custom.css?v=19bb19ed" rel="stylesheet" type="text/css"/>
 <script src="_static/jquery.js?v=5d32c60e"></script>
 <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-<script src="_static/documentation_options.js?v=fa0c6285"></script>
+<script src="_static/documentation_options.js?v=5e74e69c"></script>
 <script src="_static/doctools.js?v=9bcbadda"></script>
 <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
 <script src="_static/translations.js?v=22e1c300"></script>
@@ -78,25 +78,67 @@
 <h2>Načtení grafu z katalogu<a class="headerlink" href="#nacteni-grafu-z-katalogu" title="Link to this heading"></a></h2>
 <p>Knihovna poskytuje vestavěný katalog grafů, kde každý graf je identifikován
 jedinečným jménem resp. číslem ve formátu „&lt;číslo&gt;.&lt;číslo&gt;“. Pro načítání grafů
-dle jednotlivých identifikátorů slouží funkce <code class="xref py py-func docutils literal notranslate"><span class="pre">catalog.load_with_name()</span></code>
-resp. <code class="xref py py-func docutils literal notranslate"><span class="pre">catalog.load_with_number()</span></code>. Obě vracejí <cite>dict</cite> s grafem a dalšími
-daty o něm. Ovšem <code class="xref py py-func docutils literal notranslate"><span class="pre">catalog.load_with_number()</span></code> nevrací všechna data, aby
+dle jednotlivých identifikátorů slouží funkce <code class="xref py py-func docutils literal notranslate"><span class="pre">load_with_name()</span></code>
+resp. <code class="xref py py-func docutils literal notranslate"><span class="pre">load_with_number()</span></code>. Obě vracejí <cite>dict</cite> s grafem a dalšími
+daty o něm. Ovšem <code class="xref py py-func docutils literal notranslate"><span class="pre">load_with_number()</span></code> nevrací všechna data, aby
 graf zůstal více anonymní.</p>
+<p>Katalog si můžete prohlédnout <a class="reference internal" href="katalog/index.html"><span class="doc">zde</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graph_catalog.catalog</span> <span class="kn">import</span> <span class="n">load_with_name</span><span class="p">,</span> <span class="n">load_with_number</span>
 
-<span class="n">load_with_name</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">graph_data</span> <span class="o">=</span> <span class="n">load_with_name</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="prevody-grafu-mezi-reprezentacemi">
 <h2>Převody grafů mezi reprezentacemi<a class="headerlink" href="#prevody-grafu-mezi-reprezentacemi" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graph_catalog.conversion.from_inc_mat</span> <span class="kn">import</span> <span class="n">IncMat2AdjList</span>
+<p>Při načítání grafů obě funkce vrací graf jako
+<a class="reference internal" href="reprezentace/matice_incidence.html"><span class="doc">Matice incidence</span></a> ovšem pro práci s grafy tato reprezentace
+nemusí být nejvhodnější. Proto tato knihovna poskytuje package
+<a class="reference internal" href="modules/conversion/index.html"><span class="doc">conversion</span></a>, zahrnující funkce pro převod z jedné
+reprezentace do druhé.</p>
+<p>Pokud máme <cite>reprezentaci1</cite>, tak pro převod do <cite>reprezentace2</cite> importujeme z
+<cite>conversion.from_&lt;reprezentace_1&gt;</cite> funkci <cite>&lt;Reprezentace1&gt;2&lt;Reprezentace2&gt;</cite>
+(viz. příklad níže).</p>
+<p>Pro více informací o reprezentacích nahlédněte do <a class="reference internal" href="reprezentace/index.html"><span class="doc">Reprezentace grafů</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graph_catalog.catalog</span> <span class="kn">import</span> <span class="n">load_with_number</span>
+<span class="kn">from</span> <a class="sphinx-codeautolink-a" href="modules/conversion/from_inc_mat.html#module-graph_catalog.conversion.from_inc_mat" title="graph_catalog.conversion.from_inc_mat"><span class="nn">graph_catalog.conversion.from_inc_mat</span></a> <span class="kn">import</span> <span class="n">IncMat2AdjList</span>
+
+<span class="n">graph_data</span> <span class="o">=</span> <span class="n">load_with_number</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">IncMat2AdjList</span><span class="p">(</span><span class="n">graph_data</span><span class="p">[</span><span class="s2">"graph"</span><span class="p">])</span> <span class="c1"># převod do seznamů následníků</span>
 </pre></div>
 </div>
 </section>
 <section id="ukazkove-funkce">
 <h2>Ukázkové funkce<a class="headerlink" href="#ukazkove-funkce" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graph_catalog.algorithms.searching</span> <span class="kn">import</span> <span class="n">dfs</span>
+<p>Po převodu je s grafem možné provádět různé úkony. Proto knihovna pro ukázku
+zpracování grafů poskytuje package <a class="reference internal" href="modules/algorithms/index.html"><span class="doc">algorithms</span></a>, který dle
+kategorie úkonu obsahuje popisně pojmenované subpackage (e.g.
+<a class="reference internal" href="modules/algorithms/searching.html"><span class="doc">searching</span></a> pro prohledávání grafu).</p>
+<p>Pro ukázku je tu kód pro prohledání grafu za pomocí depth-first searche a
+vypsání vrcholů.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graph_catalog.catalog</span> <span class="kn">import</span> <span class="n">load_with_number</span>
+<span class="kn">from</span> <a class="sphinx-codeautolink-a" href="modules/conversion/from_inc_mat.html#module-graph_catalog.conversion.from_inc_mat" title="graph_catalog.conversion.from_inc_mat"><span class="nn">graph_catalog.conversion.from_inc_mat</span></a> <span class="kn">import</span> <span class="n">IncMat2AdjList</span>
+<span class="kn">from</span> <a class="sphinx-codeautolink-a" href="modules/algorithms/searching.html#module-graph_catalog.algorithms.searching" title="graph_catalog.algorithms.searching"><span class="nn">graph_catalog.algorithms.searching</span></a> <span class="kn">import</span> <a class="sphinx-codeautolink-a" href="modules/algorithms/searching.html#graph_catalog.algorithms.searching.dfs" title="graph_catalog.algorithms.searching.dfs"><span class="n">dfs</span></a>
+
+<span class="n">graph_data</span> <span class="o">=</span> <span class="n">load_with_number</span><span class="p">(</span><span class="s2">"1.0"</span><span class="p">)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">IncMat2AdjList</span><span class="p">(</span><span class="n">graph_data</span><span class="p">[</span><span class="s2">"graph"</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">vertex</span><span class="p">,</span> <span class="n">__</span> <span class="ow">in</span> <a class="sphinx-codeautolink-a" href="modules/algorithms/searching.html#graph_catalog.algorithms.searching.dfs" title="graph_catalog.algorithms.searching.dfs"><span class="n">dfs</span></a><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">graph_data</span><span class="p">[</span><span class="s2">"root"</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Výstup:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
 </pre></div>
 </div>
 </section>

@@ -1,5 +1,5 @@
 searching
 =========
 
-.. automodule:: algorithms.searching
+.. automodule:: graph_catalog.algorithms.searching
    :members:
