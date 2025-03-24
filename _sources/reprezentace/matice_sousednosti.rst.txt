@@ -39,8 +39,8 @@ reprezentují zda mezi vrcholy v řádku a sloupci existuje hrana.
            [ 0, 0, 0, 1],
            [ 0, 0, 0, 0]]
    * - Multigraf
+     - Pro multigraf není reprezentace implementována.
      -
-     - ``[[2,2]]``
    * - Ohodnocení vrcholů
      - Ohodnocení vrcholů je reprezentováno separátním seznamem ohodnocení
        indexovaným vrcholy.

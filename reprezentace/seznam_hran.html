@@ -1,50 +1,44 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="cs" data-content_root="../">
+
+<html class="writer-html5" data-content_root="../" lang="cs">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seznam hran &mdash; Dokumentace pro graph-catalog 0.9.2</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=19bb19ed" />
-
-  
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=698c6cf6"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="../_static/translations.js?v=22e1c300"></script>
-    <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Rejstřík" href="../genindex.html" />
-    <link rel="search" title="Vyhledávání" href="../search.html" />
-    <link rel="next" title="Seznamy následníků" href="seznamy_nasledniku.html" />
-    <link rel="prev" title="Reprezentace grafů" href="index.html" /> 
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seznam hran — Dokumentace pro graph-catalog 0.9.3</title>
+<link href="../_static/pygments.css?v=80d5e7a1" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/theme.css?v=e59714d7" rel="stylesheet" type="text/css"/>
+<link href="../_static/sphinx-codeautolink.css?v=125d5c1c" rel="stylesheet" type="text/css"/>
+<link href="../_static/css/custom.css?v=19bb19ed" rel="stylesheet" type="text/css"/>
+<script src="../_static/jquery.js?v=5d32c60e"></script>
+<script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+<script src="../_static/documentation_options.js?v=cdf4e8ef"></script>
+<script src="../_static/doctools.js?v=9bcbadda"></script>
+<script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script src="../_static/translations.js?v=22e1c300"></script>
+<script src="../_static/js/theme.js"></script>
+<link href="../genindex.html" rel="index" title="Rejstřík"/>
+<link href="../search.html" rel="search" title="Vyhledávání"/>
+<link href="seznamy_nasledniku.html" rel="next" title="Seznamy následníků"/>
+<link href="index.html" rel="prev" title="Reprezentace grafů"/>
 </head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
+<body class="wy-body-for-nav">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../index.html">
             graph-catalog
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Obsah:</span></p>
+</div><div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption" role="heading"><span class="caption-text">Obsah:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../pouziti.html">Použití</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problemy/problemy.html">Problémy teorie grafů</a></li>
@@ -59,33 +53,29 @@
 <li class="toctree-l1"><a class="reference internal" href="../katalog/index.html">Katalog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/index.html">Moduly</a></li>
 </ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">graph-catalog</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Reprezentace grafů</a></li>
-      <li class="breadcrumb-item active">Seznam hran</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/reprezentace/seznam_hran.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="seznam-hran">
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift"><nav aria-label="Mobile navigation menu" class="wy-nav-top">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../index.html">graph-catalog</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="Page navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Home" class="icon icon-home" href="../index.html"></a></li>
+<li class="breadcrumb-item"><a href="index.html">Reprezentace grafů</a></li>
+<li class="breadcrumb-item active">Seznam hran</li>
+<li class="wy-breadcrumbs-aside">
+<a href="../_sources/reprezentace/seznam_hran.rst.txt" rel="nofollow"> View page source</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div itemprop="articleBody">
+<section id="seznam-hran">
 <h1>Seznam hran<a class="headerlink" href="#seznam-hran" title="Link to this heading"></a></h1>
 <p><strong>Seznam hran</strong> reprezentuje graf jako seznam trojic, které reprezentují hrany.
 Tyto trojice jsou implementovány pomocí <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code>
@@ -95,16 +85,16 @@ prvek je potom ohodnocení hrany.</p>
 <p>Povšimněme si, že tato reprezentace není schopná reprezentovat izolované vrcholy
 grafu, protože ukládá pouze hrany a do izolovaného vrcholu žádné nevedou.</p>
 <p>Aby jsme odlišili orientované resp. neorientované hrany obsahuje každá hrana
-ohodnocení <code class="docutils literal notranslate"><span class="pre">&quot;directed&quot;</span></code> typu <code class="docutils literal notranslate"><span class="pre">bool</span></code> (hrany tedy mají hodnoty <code class="docutils literal notranslate"><span class="pre">True</span></code> resp.
+ohodnocení <code class="docutils literal notranslate"><span class="pre">"directed"</span></code> typu <code class="docutils literal notranslate"><span class="pre">bool</span></code> (hrany tedy mají hodnoty <code class="docutils literal notranslate"><span class="pre">True</span></code> resp.
 <code class="docutils literal notranslate"><span class="pre">False</span></code>). Smyčky zde uvažujeme jako orientované hrany.</p>
 <p>Aby nebyli příklady příliš zahlceny značíme v níže uvedené tabulce
 <a class="reference internal" href="../modules/constants.html#graph_catalog.constants.EdgeTuple" title="graph_catalog.constants.EdgeTuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeTuple</span></code></a> jako normální tuply tedy kulatými závorkami.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Reprezentace druhů grafů</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 10.0%" />
-<col style="width: 50.0%" />
-<col style="width: 40.0%" />
+<col style="width: 10.0%"/>
+<col style="width: 50.0%"/>
+<col style="width: 40.0%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Druh grafu</p></th>
@@ -114,22 +104,22 @@ ohodnocení <code class="docutils literal notranslate"><span class="pre">&quot;d
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Neorientovaný</p></td>
-<td><p>Neorientované hrany mají ohodnocení <code class="docutils literal notranslate"><span class="pre">&quot;directed&quot;</span></code> rovno <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+<td><p>Neorientované hrany mají ohodnocení <code class="docutils literal notranslate"><span class="pre">"directed"</span></code> rovno <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
 <td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
-  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
-  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>Orientovaný</p></td>
-<td><p>První vrchol je počáteční a druhý koncový. Neorientované hrany mají ohodnocení <code class="docutils literal notranslate"><span class="pre">&quot;directed&quot;</span></code> rovno <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
+<td><p>První vrchol je počáteční a druhý koncový. Neorientované hrany mají ohodnocení <code class="docutils literal notranslate"><span class="pre">"directed"</span></code> rovno <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
 <td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
-  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
-  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -139,9 +129,9 @@ ohodnocení <code class="docutils literal notranslate"><span class="pre">&quot;d
 <td><p>V tomto případě je obecný graf kombinace pravidel pro orientované a
 neorientované grafy.</p></td>
 <td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
-  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
-  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -151,9 +141,9 @@ neorientované grafy.</p></td>
 <td><p>Více hran mezi stejnými vrcholy je jednoduše reprezentován více tuply v
 seznamu se stejnými vrcholy.</p></td>
 <td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-<span class="hll">  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
-</span><span class="hll">  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
-</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+<span class="hll">  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+</span><span class="hll">  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -162,9 +152,9 @@ seznamu se stejnými vrcholy.</p></td>
 <tr class="row-even"><td><p>Ohodnocení vrcholů</p></td>
 <td><p>Ohodnocení vrcholů je reprezentováno separátním seznamem ohodnocení
 indexovaným vrcholy.</p></td>
-<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">},</span>
- <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">},</span>
- <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">}]</span>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">"color"</span><span class="p">:</span> <span class="s2">"red"</span><span class="p">},</span>
+ <span class="p">{</span><span class="s2">"color"</span><span class="p">:</span> <span class="s2">"blue"</span><span class="p">},</span>
+ <span class="p">{</span><span class="s2">"color"</span><span class="p">:</span> <span class="s2">"red"</span><span class="p">}]</span>
 </pre></div>
 </div>
 </td>
@@ -172,9 +162,9 @@ indexovaným vrcholy.</p></td>
 <tr class="row-odd"><td><p>Ohodnocení hran</p></td>
 <td><p>Každá hrana má svoje ohodnocení jako třetí prvek.</p></td>
 <td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">}),</span>
-  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}),</span>
-  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span> <span class="mi">96</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">"length"</span><span class="p">:</span> <span class="mi">52</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"length"</span><span class="p">:</span> <span class="mi">3</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"length"</span><span class="p">:</span> <span class="mi">96</span><span class="p">}),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -183,9 +173,9 @@ indexovaným vrcholy.</p></td>
 <tr class="row-even"><td><p>Obsahující smyčky</p></td>
 <td><p>Smyčky jsou reprezentovány stejnými dvěma vrcholy a jsou orientované.</p></td>
 <td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-<span class="hll">  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
-</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
-  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+<span class="hll">  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">"directed"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -198,20 +188,16 @@ indexovaným vrcholy.</p></td>
 </tbody>
 </table>
 </section>
-
-
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Reprezentace grafů" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="seznamy_nasledniku.html" class="btn btn-neutral float-right" title="Seznamy následníků" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2024, Dominik Havelka.</p>
-  </div>
+</div>
+</div>
+<footer><div aria-label="Footer" class="rst-footer-buttons" role="navigation">
+<a accesskey="p" class="btn btn-neutral float-left" href="index.html" rel="prev" title="Reprezentace grafů"><span aria-hidden="true" class="fa fa-arrow-circle-left"></span> Previous</a>
+<a accesskey="n" class="btn btn-neutral float-right" href="seznamy_nasledniku.html" rel="next" title="Seznamy následníků">Next <span aria-hidden="true" class="fa fa-arrow-circle-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<p>© Copyright 2024, Dominik Havelka.</p>
+</div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
@@ -219,15 +205,14 @@ indexovaným vrcholy.</p></td>
    
 
 </footer>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
+</div>
+</div>
+</section>
+</div>
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
-
+  </script>
 </body>
 </html>

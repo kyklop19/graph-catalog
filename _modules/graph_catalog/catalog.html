@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="cs" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>graph_catalog.catalog &mdash; Dokumentace pro graph-catalog 0.9.3</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-codeautolink.css?v=125d5c1c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=19bb19ed" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=cdf4e8ef"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=22e1c300"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Rejstřík" href="../../genindex.html" />
+    <link rel="search" title="Vyhledávání" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            graph-catalog
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Obsah:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pouziti.html">Použití</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../problemy/problemy.html">Problémy teorie grafů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reprezentace/index.html">Reprezentace grafů</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../katalog/index.html">Katalog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/index.html">Moduly</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">graph-catalog</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Kód modulu</a></li>
+      <li class="breadcrumb-item active">graph_catalog.catalog</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Zdrojový kód pro graph_catalog.catalog</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Iterator</span>
+
+<span class="kn">import</span> <span class="nn">yaml</span>
+
+<span class="kn">from</span> <span class="nn">graph_catalog.constants</span> <span class="kn">import</span> <span class="n">CATALOG_PATH</span><span class="p">,</span> <span class="n">IncMat</span><span class="p">,</span> <span class="n">OverwriteError</span>
+
+<span class="n">ANONYMOUS_METADATA_FIELDS</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="SaveOpts">
+<a class="viewcode-back" href="../../modules/catalog.html#graph_catalog.catalog.SaveOpts">[dokumentace]</a>
+<span class="k">class</span> <span class="nc">SaveOpts</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">CREATE_NEW_FILE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">OVERWRITE_GRAPH</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">_load_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">CATALOG_PATH</span> <span class="o">/</span> <span class="s2">&quot;graphs&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">graphs_file</span><span class="p">:</span>
+        <span class="n">graphs</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">graphs_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">graphs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">graph</span>
+
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">_open_catalog_yaml</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">yaml_file</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">yaml_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="n">yaml_file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">yield</span> <span class="n">data</span>
+        <span class="n">yaml_file</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">yaml_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="load_with_name">
+<a class="viewcode-back" href="../../modules/catalog.html#graph_catalog.catalog.load_with_name">[dokumentace]</a>
+<span class="k">def</span> <span class="nf">load_with_name</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads graph and all of it&#39;s metadata using it&#39;s name</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name (str): Name of the graph</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        KeyError: Raises when graph with such name doesn&#39;t exist</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict[str, Any]: Dictionary with graph in `IncMat` representation and all of it&#39;s metadata</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="n">_open_catalog_yaml</span><span class="p">(</span><span class="n">CATALOG_PATH</span> <span class="o">/</span> <span class="s2">&quot;name_index.yaml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Graph with such name doesn&#39;t exist&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
+
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">_load_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">graph</span></div>
+
+
+
+<div class="viewcode-block" id="load_with_number">
+<a class="viewcode-back" href="../../modules/catalog.html#graph_catalog.catalog.load_with_number">[dokumentace]</a>
+<span class="k">def</span> <span class="nf">load_with_number</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads graph and metadata from catalog using graph&#39;s number</span>
+
+<span class="sd">    To make loading with number anonymous, the function doesn&#39;t deletes</span>
+<span class="sd">    anonymous fields from the metadata before returning.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        number (str): Number of the graph in format &quot;&lt;number&gt;.&lt;number&gt;&quot;</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        KeyError: Raises when `number` is in a wrong format</span>
+<span class="sd">        KeyError: Raises when graph with such `number` doesn&#39;t exist</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict[str, Any]: Dictionary with the graph in `IncMat` representation and</span>
+<span class="sd">        it&#39;s metadata except the anonymous fields</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+\.\d+&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;The number of graph is in a wrong format&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">_open_catalog_yaml</span><span class="p">(</span><span class="n">CATALOG_PATH</span> <span class="o">/</span> <span class="s2">&quot;number_index.yaml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Graph with such number doesn&#39;t exist&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">number</span><span class="p">][</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">number</span><span class="p">][</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
+
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">_load_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">ANONYMOUS_METADATA_FIELDS</span><span class="p">:</span>
+        <span class="n">graph</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">graph</span></div>
+
+
+
+<div class="viewcode-block" id="save">
+<a class="viewcode-back" href="../../modules/catalog.html#graph_catalog.catalog.save">[dokumentace]</a>
+<span class="k">def</span> <span class="nf">save</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">graph</span><span class="p">:</span> <span class="n">IncMat</span><span class="p">,</span>
+    <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="n">opts</span><span class="p">:</span> <span class="n">SaveOpts</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Save `graph` as `IncMat` to the catalog</span>
+
+<span class="sd">    The `graph` is saved under the name of `name` into the file `filename.yaml`.</span>
+
+<span class="sd">    `metadata` are saved with graph into `filename.yaml`</span>
+
+<span class="sd">    `number` of the graph is generated and returned.</span>
+
+<span class="sd">    By default graph can&#39;t be overwritten resp. can&#39;t be written into</span>
+<span class="sd">    nonexisting file. By setting `opts` to `SaveOpts.OVERWRITE_GRAPH` resp.</span>
+<span class="sd">    `SaveOpts.CREATE_NEW_FILE` this behavior can be turned off.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name (str): Name of the graph</span>
+<span class="sd">        filename (str): Name of the file where graph is saved (without the extension)</span>
+<span class="sd">        graph (IncMat): Graph as `IncMat`</span>
+<span class="sd">        metadata (dict[str, Any], optional): Dictionary with field names as keys and any data as values. Defaults to {}.</span>
+<span class="sd">        opts (SaveOpts, optional): Options to either allow overwriting a graph or creating new graph file. Defaults to None.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        FileNotFoundError: Raises if `filename.yaml` doesn&#39;t exists unless</span>
+<span class="sd">            `SaveOpts.CREATE_NEW_FILE` is set as option</span>
+<span class="sd">        OverwriteError: Raises if `name` graph already exists unless `SaveOpts.OVERWRITE_GRAPH` is set as</span>
+<span class="sd">            option</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The `number` of the graph automatically generated based of `filename.yaml` and number of already saved files in it</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">GRAPHS_PATH</span> <span class="o">=</span> <span class="n">CATALOG_PATH</span> <span class="o">/</span> <span class="s2">&quot;graphs&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.yaml&quot;</span>
+
+    <span class="n">create_new_file</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">GRAPHS_PATH</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">SaveOpts</span><span class="o">.</span><span class="n">CREATE_NEW_FILE</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">opts</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Graph file &quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&quot; doesn</span><span class="se">\&#39;</span><span class="s1">t exist.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">create_new_file</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="n">create_new_file</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">GRAPHS_PATH</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">graph_file</span><span class="p">:</span>
+            <span class="n">graph_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">({}))</span>
+
+    <span class="k">with</span> <span class="n">_open_catalog_yaml</span><span class="p">(</span><span class="n">CATALOG_PATH</span> <span class="o">/</span> <span class="s2">&quot;graphs_files_index.yaml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">records</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">create_new_file</span><span class="p">:</span>
+            <span class="n">records</span><span class="p">[</span><span class="n">filename</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+        <span class="n">file_number</span> <span class="o">=</span> <span class="n">records</span><span class="p">[</span><span class="n">filename</span><span class="p">]</span>
+
+    <span class="n">overwriting</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">with</span> <span class="n">_open_catalog_yaml</span><span class="p">(</span><span class="n">CATALOG_PATH</span> <span class="o">/</span> <span class="s2">&quot;name_index.yaml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">records</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">SaveOpts</span><span class="o">.</span><span class="n">OVERWRITE_GRAPH</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">opts</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">OverwriteError</span><span class="p">(</span>
+                    <span class="s2">&quot;Can&#39;t overwrite already existing graph unless explicitly enabling overwrite option&quot;</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="n">records</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
+                <span class="n">overwriting</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">with</span> <span class="n">_open_catalog_yaml</span><span class="p">(</span>
+        <span class="n">GRAPHS_PATH</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span> <span class="k">as</span> <span class="n">graphs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">overwriting</span><span class="p">:</span>
+            <span class="n">num_of_graphs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graphs</span><span class="p">)</span>
+            <span class="n">number</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_number</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">num_of_graphs</span><span class="si">}</span><span class="s2">&quot;</span>
+
+            <span class="n">key</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">number</span> <span class="o">=</span> <span class="n">graphs</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;number&quot;</span><span class="p">]</span>
+
+        <span class="n">record</span> <span class="o">=</span> <span class="n">metadata</span> <span class="o">|</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="n">number</span><span class="p">,</span>
+            <span class="s2">&quot;graph&quot;</span><span class="p">:</span> <span class="n">graph</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">graphs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span>
+
+    <span class="k">with</span> <span class="n">_open_catalog_yaml</span><span class="p">(</span><span class="n">CATALOG_PATH</span> <span class="o">/</span> <span class="s2">&quot;name_index.yaml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">records</span><span class="p">:</span>
+        <span class="n">records</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="n">key</span><span class="p">}</span>
+
+    <span class="k">with</span> <span class="n">_open_catalog_yaml</span><span class="p">(</span><span class="n">CATALOG_PATH</span> <span class="o">/</span> <span class="s2">&quot;number_index.yaml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">records</span><span class="p">:</span>
+        <span class="n">records</span><span class="p">[</span><span class="n">number</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="n">key</span><span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">number</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Dominik Havelka.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

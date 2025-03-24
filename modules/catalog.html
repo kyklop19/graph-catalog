@@ -6,15 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>catalog &mdash; Dokumentace pro graph-catalog 0.9.2</title>
+  <title>catalog &mdash; Dokumentace pro graph-catalog 0.9.3</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=125d5c1c" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=19bb19ed" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=698c6cf6"></script>
+      <script src="../_static/documentation_options.js?v=cdf4e8ef"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=22e1c300"></script>
@@ -52,7 +53,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../katalog/index.html">Katalog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Moduly</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="constants.html">constants</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">catalog</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">catalog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.catalog.SaveOpts"><code class="docutils literal notranslate"><span class="pre">SaveOpts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.catalog.load_with_name"><code class="docutils literal notranslate"><span class="pre">load_with_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.catalog.load_with_number"><code class="docutils literal notranslate"><span class="pre">load_with_number()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.catalog.save"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="conversion/index.html">conversion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="algorithms/index.html">algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="graph.html">graph</a></li>
@@ -86,8 +93,96 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="catalog">
-<h1>catalog<a class="headerlink" href="#catalog" title="Link to this heading"></a></h1>
+  <section id="module-graph_catalog.catalog">
+<span id="catalog"></span><h1>catalog<a class="headerlink" href="#module-graph_catalog.catalog" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="graph_catalog.catalog.SaveOpts">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.catalog.</span></span><span class="sig-name descname"><span class="pre">SaveOpts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graph_catalog/catalog.html#SaveOpts"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.catalog.SaveOpts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="graph_catalog.catalog.load_with_name">
+<span class="sig-prename descclassname"><span class="pre">graph_catalog.catalog.</span></span><span class="sig-name descname"><span class="pre">load_with_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/graph_catalog/catalog.html#load_with_name"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.catalog.load_with_name" title="Link to this definition"></a></dt>
+<dd><p>Loads graph and all of it’s metadata using it’s name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametry<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Name of the graph</p>
+</dd>
+<dt class="field-even">Vyvolá<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – Raises when graph with such name doesn’t exist</p>
+</dd>
+<dt class="field-odd">Vrací<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with graph in <cite>IncMat</cite> representation and all of it’s metadata</p>
+</dd>
+<dt class="field-even">Typ návratové hodnoty<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="graph_catalog.catalog.load_with_number">
+<span class="sig-prename descclassname"><span class="pre">graph_catalog.catalog.</span></span><span class="sig-name descname"><span class="pre">load_with_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/graph_catalog/catalog.html#load_with_number"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.catalog.load_with_number" title="Link to this definition"></a></dt>
+<dd><p>Loads graph and metadata from catalog using graph’s number</p>
+<p>To make loading with number anonymous, the function doesn’t deletes
+anonymous fields from the metadata before returning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametry<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>number</strong> (<em>str</em>) – Number of the graph in format „&lt;number&gt;.&lt;number&gt;“</p>
+</dd>
+<dt class="field-even">Vyvolá<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>KeyError</strong> – Raises when <cite>number</cite> is in a wrong format</p></li>
+<li><p><strong>KeyError</strong> – Raises when graph with such <cite>number</cite> doesn’t exist</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Vrací<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with the graph in <cite>IncMat</cite> representation and
+it’s metadata except the anonymous fields</p>
+</dd>
+<dt class="field-even">Typ návratové hodnoty<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="graph_catalog.catalog.save">
+<span class="sig-prename descclassname"><span class="pre">graph_catalog.catalog.</span></span><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IncMat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#graph_catalog.catalog.SaveOpts" title="graph_catalog.catalog.SaveOpts"><span class="pre">SaveOpts</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/graph_catalog/catalog.html#save"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.catalog.save" title="Link to this definition"></a></dt>
+<dd><p>Save <cite>graph</cite> as <cite>IncMat</cite> to the catalog</p>
+<p>The <cite>graph</cite> is saved under the name of <cite>name</cite> into the file <cite>filename.yaml</cite>.</p>
+<p><cite>metadata</cite> are saved with graph into <cite>filename.yaml</cite></p>
+<p><cite>number</cite> of the graph is generated and returned.</p>
+<p>By default graph can’t be overwritten resp. can’t be written into
+nonexisting file. By setting <cite>opts</cite> to <cite>SaveOpts.OVERWRITE_GRAPH</cite> resp.
+<cite>SaveOpts.CREATE_NEW_FILE</cite> this behavior can be turned off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametry<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Name of the graph</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Name of the file where graph is saved (without the extension)</p></li>
+<li><p><strong>graph</strong> (<em>IncMat</em>) – Graph as <cite>IncMat</cite></p></li>
+<li><p><strong>metadata</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>optional</em>) – Dictionary with field names as keys and any data as values. Defaults to {}.</p></li>
+<li><p><strong>opts</strong> (<a class="reference internal" href="#graph_catalog.catalog.SaveOpts" title="graph_catalog.catalog.SaveOpts"><em>SaveOpts</em></a><em>, </em><em>optional</em>) – Options to either allow overwriting a graph or creating new graph file. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Vyvolá<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – Raises if <cite>filename.yaml</cite> doesn’t exists unless
+    <cite>SaveOpts.CREATE_NEW_FILE</cite> is set as option</p></li>
+<li><p><a class="reference internal" href="constants.html#graph_catalog.constants.OverwriteError" title="graph_catalog.constants.OverwriteError"><strong>OverwriteError</strong></a> – Raises if <cite>name</cite> graph already exists unless <cite>SaveOpts.OVERWRITE_GRAPH</cite> is set as
+    option</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Vrací<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The <cite>number</cite> of the graph automatically generated based of <cite>filename.yaml</cite> and number of already saved files in it</p>
+</dd>
+<dt class="field-even">Typ návratové hodnoty<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
