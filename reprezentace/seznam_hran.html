@@ -6,16 +6,15 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seznam hran &mdash; Dokumentace pro graph-catalog 0.9.1</title>
+  <title>Seznam hran &mdash; Dokumentace pro graph-catalog 0.9.2</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=125d5c1c" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=19bb19ed" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=5e74e69c"></script>
+      <script src="../_static/documentation_options.js?v=698c6cf6"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=22e1c300"></script>
@@ -89,15 +88,15 @@
   <section id="seznam-hran">
 <h1>Seznam hran<a class="headerlink" href="#seznam-hran" title="Link to this heading"></a></h1>
 <p><strong>Seznam hran</strong> reprezentuje graf jako seznam trojic, které reprezentují hrany.
-Tyto trojice jsou implementovány pomocí <cite>namedtuple</cite>
+Tyto trojice jsou implementovány pomocí <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code>
 <a class="reference internal" href="../modules/constants.html#graph_catalog.constants.EdgeTuple" title="graph_catalog.constants.EdgeTuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeTuple</span></code></a>. Z toho první dva prvky jsou vrcholy
 hrany (v orientovaném grafu je první počáteční vrchol a druhý koncový). Třetí
 prvek je potom ohodnocení hrany.</p>
 <p>Povšimněme si, že tato reprezentace není schopná reprezentovat izolované vrcholy
 grafu, protože ukládá pouze hrany a do izolovaného vrcholu žádné nevedou.</p>
 <p>Aby jsme odlišili orientované resp. neorientované hrany obsahuje každá hrana
-ohodnocení <cite>„directed“</cite> typu <cite>bool</cite> (hrany tedy mají hodnoty <cite>True</cite> resp.
-<cite>False</cite>). Smyčky zde uvažujeme jako orientované hrany.</p>
+ohodnocení <code class="docutils literal notranslate"><span class="pre">&quot;directed&quot;</span></code> typu <code class="docutils literal notranslate"><span class="pre">bool</span></code> (hrany tedy mají hodnoty <code class="docutils literal notranslate"><span class="pre">True</span></code> resp.
+<code class="docutils literal notranslate"><span class="pre">False</span></code>). Smyčky zde uvažujeme jako orientované hrany.</p>
 <p>Aby nebyli příklady příliš zahlceny značíme v níže uvedené tabulce
 <a class="reference internal" href="../modules/constants.html#graph_catalog.constants.EdgeTuple" title="graph_catalog.constants.EdgeTuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeTuple</span></code></a> jako normální tuply tedy kulatými závorkami.</p>
 <table class="docutils align-default" id="id1">
@@ -115,37 +114,86 @@ ohodnocení <cite>„directed“</cite> typu <cite>bool</cite> (hrany tedy mají
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Neorientovaný</p></td>
-<td><p>Neorientované hrany mají ohodnocení <cite>„directed“</cite> rovno <cite>False</cite>.</p></td>
-<td></td>
+<td><p>Neorientované hrany mají ohodnocení <code class="docutils literal notranslate"><span class="pre">&quot;directed&quot;</span></code> rovno <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Orientovaný</p></td>
-<td><p>První vrchol je počáteční a druhý koncový. Neorientované hrany mají ohodnocení <cite>„directed“</cite> rovno <cite>True</cite>.</p></td>
-<td></td>
+<td><p>První vrchol je počáteční a druhý koncový. Neorientované hrany mají ohodnocení <code class="docutils literal notranslate"><span class="pre">&quot;directed&quot;</span></code> rovno <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Obecný (smíšený)</p></td>
 <td><p>V tomto případě je obecný graf kombinace pravidel pro orientované a
 neorientované grafy.</p></td>
-<td></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Multigraf</p></td>
-<td></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">[(1,2,</span> <span class="pre">False),(1,2,</span> <span class="pre">False)]</span></code></p></td>
+<td><p>Více hran mezi stejnými vrcholy je jednoduše reprezentován více tuply v
+seznamu se stejnými vrcholy.</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="hll">  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+</span><span class="hll">  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Ohodnocení vrcholů</p></td>
-<td></td>
-<td></td>
+<td><p>Ohodnocení vrcholů je reprezentováno separátním seznamem ohodnocení
+indexovaným vrcholy.</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Ohodnocení hran</p></td>
-<td></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">[(1,2,</span> <span class="pre">False,</span> <span class="pre">{})]</span></code></p></td>
+<td><p>Každá hrana má svoje ohodnocení jako třetí prvek.</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span> <span class="mi">96</span><span class="p">}),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Obsahující smyčky</p></td>
-<td></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">[(1,1,</span> <span class="pre">False,</span> <span class="pre">{})]</span></code></p></td>
+<td><p>Smyčky jsou reprezentovány stejnými dvěma vrcholy a jsou orientované.</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="hll">  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}),</span>
+</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;directed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Hypergraf</p></td>
+<td><p>Pro hypergraf není reprezentace implementována.</p></td>
 <td></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">[([1,1,2,3],</span> <span class="pre">[True,</span> <span class="pre">False,</span> <span class="pre">...],</span> <span class="pre">{})]</span></code></p></td>
 </tr>
 </tbody>
 </table>
