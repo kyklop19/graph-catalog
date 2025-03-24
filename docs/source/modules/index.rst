@@ -6,8 +6,8 @@ Moduly
    :caption: Obsah:
 
    constants
-   graph
-   heap
    catalog
    conversion/index
    algorithms/index
+   graph
+   heap

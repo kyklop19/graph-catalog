@@ -30,4 +30,4 @@ uložen jako :code:`str` a hodnota může být kteréhokoliv typu.
    * - :doc:`/reprezentace/matice_incidence`
      - ``IncMat``
    * - :doc:`/reprezentace/dynamicka_reprezentace`
-     - :class:`graph.Graph`
+     - :class:`~graph_catalog.graph.Graph`

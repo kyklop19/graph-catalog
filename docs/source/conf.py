@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "graph_catalog"))
 project = "graph-catalog"
 copyright = "2024, Dominik Havelka"
 author = "Dominik Havelka"
-release = "0.9.1"
+release = "0.9.2"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -24,7 +24,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",
     "sphinx.ext.napoleon",
-    "sphinx_codeautolink",
+    # "sphinx_codeautolink",
     "sphinx.ext.doctest",
 ]
 
