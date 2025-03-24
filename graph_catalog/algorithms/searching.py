@@ -1,5 +1,5 @@
 from collections import deque, namedtuple
-from enum import Flag, IntEnum, auto
+from enum import Flag, auto
 from math import inf
 from typing import Iterator
 
@@ -7,12 +7,6 @@ from graph_catalog.constants import AdjList
 
 DFSStates = namedtuple("DFSStates", ("parents", "opening_orders", "closing_orders"))
 BFSStates = namedtuple("BFSStates", ("parents", "distances"))
-
-
-class SearchState(IntEnum):
-    UNVISITED = 0
-    OPENED = 1
-    CLOSED = 2
 
 
 class DFSOrder(Flag):
@@ -147,6 +141,7 @@ def bfs_component(
 
     to_visit = deque()
     to_visit.append(start_vertex)
+    to_visit_next = deque()
     distances[start_vertex] = distance
     distance += 1
 
@@ -155,12 +150,16 @@ def bfs_component(
 
         yield (curr_vertex, BFSStates(parents, distances))
 
-        for nbr in graph[curr_vertex]:
+        for nbr, __ in graph[curr_vertex]:
             if distances[nbr] == inf:
                 distances[nbr] = distance
-                distance += 1
                 parents[nbr] = curr_vertex
-                to_visit.append(nbr)
+                to_visit_next.append(nbr)
+
+        if len(to_visit) == 0:
+            to_visit = to_visit_next
+            to_visit_next = deque()
+            distance += 1
 
 
 def bfs(
@@ -174,5 +173,5 @@ def bfs(
 
     for i in range(length):
         if distances[i] == inf:
-            for res in dfs_component(graph, i, distance, distances, parents):
+            for res in bfs_component(graph, i, distance, distances, parents):
                 yield res

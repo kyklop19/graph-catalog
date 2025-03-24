@@ -7,7 +7,7 @@ kterého vede hrana z vrcholu, který je indexem tohoto seznamu dvojic. Druhý
 prvek je potom ohodnocení hrany.
 
 Dvojice reprezentující následníka je implementována pomocí :code:`namedtuple`
-:class:`graph_catalog.constants.NbrTuple` (prvky jsou tedy přístupné pod
+:class:`~graph_catalog.constants.NbrTuple` (prvky jsou tedy přístupné pod
 indexem, ale také jako aliasy). V níže uvedené tabulce je však budeme značit
 jako normální tuply kulatými závorkami.
 

@@ -11,14 +11,16 @@ def backtrack(parents: list[int], end_vertex: int) -> list[int]:
     while curr_vertex is not None:
         res.append(curr_vertex)
         curr_vertex = parents[curr_vertex]
-    return reversed(res)
+    return [v for v in reversed(res)]
 
 
-def find_shortest_path(graph: AdjList, start_vertex: int, end_vertex: int) -> list[int]:
-    res = []
-    for curr_vertex, __, parents in bfs_component(graph, start_vertex):
+def find_shortest_path(
+    graph: AdjList, start_vertex: int, end_vertex: int
+) -> list[int] | None:
+    res = None
+    for curr_vertex, dfs_states in bfs_component(graph, start_vertex):
         if curr_vertex == end_vertex:
-            res = backtrack(parents, curr_vertex)
+            res = backtrack(dfs_states.parents, curr_vertex)
             break
     return res
 

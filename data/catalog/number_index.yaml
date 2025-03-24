@@ -1,3 +1,15 @@
+'0.0':
+  filename: cycles
+  key: 0.0disconnected_with_cycle
 '1.0':
   filename: searching
   key: 1.0binary_tree_with_branching_and_long_branch
+'1.1':
+  filename: searching
+  key: 1.1branched_cycle
+'1.2':
+  filename: searching
+  key: 1.2forest_with_3_trees
+'1.3':
+  filename: searching
+  key: 1.3disconnected_cycle,_tree_and_vertex

@@ -1,3 +1,15 @@
 binary tree with branching and long branch:
   filename: searching
   key: 1.0binary_tree_with_branching_and_long_branch
+branched cycle:
+  filename: searching
+  key: 1.1branched_cycle
+disconnected cycle, tree and vertex:
+  filename: searching
+  key: 1.3disconnected_cycle,_tree_and_vertex
+disconnected with cycle:
+  filename: cycles
+  key: 0.0disconnected_with_cycle
+forest with 3 trees:
+  filename: searching
+  key: 1.2forest_with_3_trees

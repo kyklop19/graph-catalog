@@ -1,5 +1,5 @@
 connectivity
 ============
 
-.. automodule:: algorithms.connectivity
+.. automodule:: graph_catalog.algorithms.connectivity
    :members:

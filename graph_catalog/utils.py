@@ -23,6 +23,3 @@ def binary_search(
             isFound = True
 
     return (isFound, lower)
-
-
-print(binary_search([[-1], [0], [3], [4], [8], [13]], [7], key=lambda x: x[0]))

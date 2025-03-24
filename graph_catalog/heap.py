@@ -61,7 +61,12 @@ class Heap:
 
     def change_value(self, value: int, id: int):
         index = self.id_indexes[id]
+        old_value = self.item_list[index][0]
         self.item_list[index] = (value, id)
+        if value < old_value:
+            self.heapify_up(index)
+        elif value > old_value:
+            self.heapify_down(index)
 
     def pop(self):
         self.item_list[0], self.item_list[-1] = self.item_list[-1], self.item_list[0]

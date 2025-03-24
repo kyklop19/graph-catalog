@@ -1,15 +1,20 @@
 from enum import Enum, auto
+from pathlib import Path
+from sys import path
 
-from catalog import SaveOpts, save
-from constants import ROOT_PATH
-from conversion.from_inc_mat import (
+path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from pyvis.network import Network
+from regex_spm import fullmatch_in
+
+from graph_catalog.catalog import SaveOpts, save
+from graph_catalog.constants import ROOT_PATH
+from graph_catalog.conversion.from_inc_mat import (
     IncMat2AdjList,
     IncMat2AdjMat,
     IncMat2EdgeList,
     IncMat2Graph,
 )
-from pyvis.network import Network
-from regex_spm import fullmatch_in
 
 
 class EdgeType:
@@ -28,7 +33,7 @@ class CommandExecutor:
         self.edge_weights = []
         self.default_weight_name = "length"
         self.default_arrow = None
-        self.arrow_map = {"to": "to", "from": "from", "u": None}
+        self.ARROW_MAP = {"to": "to", "from": "from", "u": None}
 
         self.net = Network(directed=True, font_color="black")
         self.net.add_node("0")
@@ -62,7 +67,7 @@ class CommandExecutor:
 
         self.update_html()
 
-    def add_edge(self, first_vertex, second_vertex, directed):
+    def add_edge(self, first_vertex, second_vertex, arrow):
         num_of_V = len(self.graph)
         num_of_E = len(self.graph[0])
 
@@ -70,6 +75,15 @@ class CommandExecutor:
             self.graph[row].append(0)
 
         self.graph[first_vertex][-1] = 1
+
+        if arrow is None:
+            arrow = self.default_arrow
+        else:
+            arrow = self.ARROW_MAP[arrow]
+
+        directed = False
+        if arrow is not None:
+            directed = True
 
         if self.graph[second_vertex][-1] != 0:
             second_vertex_value = 2
@@ -81,9 +95,11 @@ class CommandExecutor:
 
         self.edge_weights.append({})
 
-        arrow = "to" if directed else None
         self.net.add_edge(
-            str(first_vertex), str(second_vertex), arrows=arrow, label=str(num_of_E)
+            str(first_vertex),
+            str(second_vertex),
+            arrows=arrow,
+            label=str(num_of_E),
         )
 
         self.update_html()
@@ -127,13 +143,12 @@ class CommandExecutor:
             case r"(\d+) (\d+) ?(\w)?" as m:
                 first_vertex = int(m[1])
                 second_vertex = int(m[2])
-                directed = True if m[3] == "d" else False
 
-                self.add_edge(first_vertex, second_vertex, directed)
+                self.add_edge(first_vertex, second_vertex, m[3])
             case r"(\d+)" as m:
                 self.join_vertex(int(m[1]))
             case r"sete (\w+)" as m:
-                self.default_arrow = self.arrow_map[m[1]]
+                self.default_arrow = self.ARROW_MAP[m[1]]
             case r"setw (\w+)" as m:
                 self.default_weight_name = m[1]
             case r"w (\d+) (\d+)" as m:

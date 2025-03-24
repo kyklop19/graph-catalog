@@ -1,4 +1,4 @@
-from constants import (
+from graph_catalog.constants import (
     AdjList,
     AdjMat,
     ConversionError,
@@ -7,7 +7,7 @@ from constants import (
     IncMat,
     NbrTuple,
 )
-from graph import (
+from graph_catalog.graph import (
     DirectedEdge,
     DirectedHyperedge,
     Graph,
@@ -37,7 +37,7 @@ def Graph2AdjMat(graph: Graph) -> AdjMat:
     for edge in graph.edges:
         if isinstance(edge, UndirectedEdge):
             res[edge.vertices[0].index][edge.vertices[1].index] = 1
-            res[edge.vertices[1].index][[edge.vertices[0].index]] = 1
+            res[edge.vertices[1].index][edge.vertices[0].index] = 1
         elif isinstance(edge, DirectedEdge):
             res[edge.source_vertex.index][edge.target_vertex.index] = 1
         elif isinstance(edge, LoopEdge):
@@ -70,18 +70,18 @@ def Graph2AdjList(graph: Graph) -> AdjList:
     for edge_index, edge in enumerate(graph.edges):
         if isinstance(edge, UndirectedEdge):
             res[edge.vertices[0].index].append(
-                NbrTuple(edge.vertices[1].index), {"index": edge_index}
+                NbrTuple(edge.vertices[1].index, {"index": edge_index})
             )
             res[edge.vertices[1].index].append(
-                NbrTuple(edge.vertices[0].index), {"index": edge_index}
+                NbrTuple(edge.vertices[0].index, {"index": edge_index})
             )
         elif isinstance(edge, DirectedEdge):
             res[edge.source_vertex.index].append(
-                NbrTuple(edge.target_vertex.index), {"index": edge_index}
+                NbrTuple(edge.target_vertex.index, {"index": edge_index})
             )
         elif isinstance(edge, LoopEdge):
             res[edge.vertex.index].append(
-                NbrTuple(edge.vertex.index), {"index": edge_index}
+                NbrTuple(edge.vertex.index, {"index": edge_index})
             )
         elif isinstance(edge, UndirectedHyperedge) or isinstance(
             edge, DirectedHyperedge

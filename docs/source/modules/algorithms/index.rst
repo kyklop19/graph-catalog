@@ -5,10 +5,10 @@ algorithms
    :maxdepth: 2
    :caption: Obsah:
 
+   searching
    bipartite
    connectivity
    cycles
-   minimum_spanning_tree
-   searching
-   shortest_path
    topological_ordering
+   shortest_path
+   minimum_spanning_tree

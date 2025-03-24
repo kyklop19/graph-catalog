@@ -1,7 +1,7 @@
 from copy import deepcopy
 
-from constants import AdjList, AdjMat, EdgeList, IncMat, NbrTuple
-from graph import Edge, Graph, Vertex
+from graph_catalog.constants import AdjList, AdjMat, EdgeList, IncMat, NbrTuple
+from graph_catalog.graph import Edge, Graph, Vertex
 
 
 def EdgeList2AdjMat(graph: EdgeList) -> AdjMat:

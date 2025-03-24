@@ -70,7 +70,7 @@ class Edge(ABC):
             return NotImplemented
 
     def __repr__(self):
-        return f"{type(self).__name__}{self.weights}"
+        return f"{type(self).__name__} {self.index} {self.weights}"
 
     @abstractmethod
     def get_target_vertices(self, source_vertex: Vertex | None) -> Iterator[Vertex]:
@@ -88,9 +88,12 @@ class UndirectedEdge(Edge):
 
     def __eq__(self, other):
         if isinstance(other, UndirectedEdge):
-            return super().__eq__(other) and self.vertices == other.vertices
+            return super().__eq__(other) and (self.vertices == other.vertices)
         else:
             return NotImplemented
+
+    def __repr__(self):
+        return f"{super().__repr__()} {self.vertices}"
 
     def get_target_vertices(self, source_vertex: Vertex | None) -> Iterator[Vertex]:
         for vertex in self.vertices:
@@ -123,6 +126,9 @@ class DirectedEdge(Edge):
         else:
             return NotImplemented
 
+    def __repr__(self):
+        return f"{super().__repr__()} {self.source_vertex} -> {self.target_vertex}"
+
     def get_target_vertices(self, __: Vertex | None = None) -> Iterator[Vertex]:
         yield self.target_vertex
 
@@ -139,6 +145,9 @@ class LoopEdge(Edge):
             return super().__eq__(other) and self.vertex == other.vertex
         else:
             return NotImplemented
+
+    def __repr__(self):
+        return f"{super().__repr__()} {self.vertex}"
 
     def get_target_vertices(self, __: Vertex | None = None) -> Iterator[Vertex]:
         yield self.vertex
@@ -158,6 +167,9 @@ class UndirectedHyperedge(Edge):
             return super().__eq__(other) and self.vertices == other.vertices
         else:
             return NotImplemented
+
+    def __repr__(self):
+        return f"{super().__repr__()} {self.vertices}"
 
     def get_target_vertices(self, source_vertex: Vertex | None) -> Iterator[Vertex]:
         for vertex in self.vertices:
@@ -190,6 +202,9 @@ class DirectedHyperedge(Edge):
         else:
             return NotImplemented
 
+    def __repr__(self):
+        return f"{super().__repr__()} {self.source_vertices}->{self.target_vertices}"
+
     def get_target_vertices(self, __: Vertex | None = None) -> Iterator[Vertex]:
         for vertex in self.target_vertices:
             yield vertex
@@ -212,7 +227,7 @@ class Graph:
 
     def __eq__(self, other):
         if isinstance(other, Graph):
-            return self.vertices == other.vertices and self.edges == other.edges
+            return (self.vertices == other.vertices) and (self.edges == other.edges)
         else:
             return NotImplemented
 

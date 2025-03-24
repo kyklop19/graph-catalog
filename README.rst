@@ -19,4 +19,4 @@ Funkce
 - Převodové funkce pro 5 různých reprezentací grafů
 - Funkce pro zpracování grafů a řešení různých problémů teorie grafů
 
-Pro více informací nahlédněte do `dokumentace <https://kyklop19.github.io/graph-catalog/>`_.
+Pro více informací nahlédněte do `dokumentace <https://kyklop19.github.io/graph-catalog/index.html>`_.

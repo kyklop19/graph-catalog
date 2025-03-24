@@ -1,5 +1,6 @@
 from constants import ConversionError, EdgeTuple, NbrTuple
-from graph import Edge, Graph, Vertex
+
+from graph_catalog.graph import Edge, Graph, Vertex
 
 SEARCHING_GRAPHS = [[[], [], [], [], [], [], [], [], [], [], []]]
 
