@@ -61,7 +61,12 @@
 <li class="toctree-l3"><a class="reference internal" href="connectivity.html">connectivity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cycles.html">cycles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="topological_ordering.html">topological_ordering</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">shortest_path</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">shortest_path</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.algorithms.shortest_path.backtrack"><code class="docutils literal notranslate"><span class="pre">backtrack()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.algorithms.shortest_path.find_shortest_path"><code class="docutils literal notranslate"><span class="pre">find_shortest_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.algorithms.shortest_path.find_shortest_path_weighted"><code class="docutils literal notranslate"><span class="pre">find_shortest_path_weighted()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="minimum_spanning_tree.html">minimum_spanning_tree</a></li>
 </ul>
 </li>
@@ -99,6 +104,70 @@
              
   <section id="module-graph_catalog.algorithms.shortest_path">
 <span id="shortest-path"></span><h1>shortest_path<a class="headerlink" href="#module-graph_catalog.algorithms.shortest_path" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="graph_catalog.algorithms.shortest_path.backtrack">
+<span class="sig-prename descclassname"><span class="pre">graph_catalog.algorithms.shortest_path.</span></span><span class="sig-name descname"><span class="pre">backtrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/graph_catalog/algorithms/shortest_path.html#backtrack"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.algorithms.shortest_path.backtrack" title="Link to this definition"></a></dt>
+<dd><p>Returns sequence of vertices indexes from starting vertex to end vertex based on parent list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametry<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parents</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – List where every element represents parent of it’s index</p></li>
+<li><p><strong>end_vertex</strong> (<em>int</em>) – Vertex index from where to start backtracking</p></li>
+</ul>
+</dd>
+<dt class="field-even">Vrací<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of vertices indexes from starting vertex to end vertex</p>
+</dd>
+<dt class="field-odd">Typ návratové hodnoty<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="graph_catalog.algorithms.shortest_path.find_shortest_path">
+<span class="sig-prename descclassname"><span class="pre">graph_catalog.algorithms.shortest_path.</span></span><span class="sig-name descname"><span class="pre">find_shortest_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AdjList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/graph_catalog/algorithms/shortest_path.html#find_shortest_path"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.algorithms.shortest_path.find_shortest_path" title="Link to this definition"></a></dt>
+<dd><p>Finds the shortest path to <code class="docutils literal notranslate"><span class="pre">end_vertex</span></code> in unweighted graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametry<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>AdjList</em>) – Graph as adjacency list</p></li>
+<li><p><strong>start_vertex</strong> (<em>int</em>) – Vertex from where to start searching</p></li>
+<li><p><strong>end_vertex</strong> (<em>int</em>) – Vertex where to stop searching</p></li>
+</ul>
+</dd>
+<dt class="field-even">Vrací<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path as list of vertex index from start to end if path exists else None</p>
+</dd>
+<dt class="field-odd">Typ návratové hodnoty<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="graph_catalog.algorithms.shortest_path.find_shortest_path_weighted">
+<span class="sig-prename descclassname"><span class="pre">graph_catalog.algorithms.shortest_path.</span></span><span class="sig-name descname"><span class="pre">find_shortest_path_weighted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AdjList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'length'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/graph_catalog/algorithms/shortest_path.html#find_shortest_path_weighted"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.algorithms.shortest_path.find_shortest_path_weighted" title="Link to this definition"></a></dt>
+<dd><p>Find shortest path from <code class="docutils literal notranslate"><span class="pre">start_vertex</span></code> to <code class="docutils literal notranslate"><span class="pre">end_vertex</span></code> in non-negatively weighted graph</p>
+<p>Function is an implementation of Dijkstra’s algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametry<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>AdjList</em>) – Graph as adjacency list</p></li>
+<li><p><strong>start_vertex</strong> (<em>int</em>) – Vertex from where to start searching</p></li>
+<li><p><strong>end_vertex</strong> (<em>int</em>) – Vertex where to end search</p></li>
+<li><p><strong>weight_name</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of non-negative weight in the <code class="docutils literal notranslate"><span class="pre">graph</span></code>. Defaults to „length“.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Vrací<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path as list of vertex index from start to end if path exists else None</p>
+</dd>
+<dt class="field-odd">Typ návratové hodnoty<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
