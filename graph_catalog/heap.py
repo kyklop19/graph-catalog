@@ -93,6 +93,7 @@ class Heap:
             tuple[int, int]: Item with minimal value
         """
         self.item_list[0], self.item_list[-1] = self.item_list[-1], self.item_list[0]
+        self.id_indexes[self.item_list[0][1]] = 0
         res = self.item_list.pop()
         self.heapify_down(0)
         del self.id_indexes[res[1]]
