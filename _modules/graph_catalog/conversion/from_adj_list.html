@@ -154,7 +154,17 @@
 
 
 
+<div class="viewcode-block" id="AdjList2IncMat">
+<a class="viewcode-back" href="../../../modules/conversion/from_adj_list.html#graph_catalog.conversion.from_adj_list.AdjList2IncMat">[dokumentace]</a>
 <span class="k">def</span> <span class="nf">AdjList2IncMat</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">AdjList</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IncMat</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts graph from adjacency list to incidence matrix</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph (AdjList): Graph as adjacency list</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        IncMat: Graph as incidence matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">num_of_V</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
 
     <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
@@ -183,10 +193,21 @@
                 <span class="k">if</span> <span class="n">res</span><span class="p">[</span><span class="n">nbr</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="n">res</span><span class="p">[</span><span class="n">nbr</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
-    <span class="k">return</span> <span class="n">res</span>
+    <span class="k">return</span> <span class="n">res</span></div>
 
 
+
+<div class="viewcode-block" id="AdjList2Graph">
+<a class="viewcode-back" href="../../../modules/conversion/from_adj_list.html#graph_catalog.conversion.from_adj_list.AdjList2Graph">[dokumentace]</a>
 <span class="k">def</span> <span class="nf">AdjList2Graph</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">AdjList</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Graph</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts graph from adjacency list to instance of Graph</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        graph (AdjList): Graph as adjacency list</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Graph: Graph as instance of Graph</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">num_of_V</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
 
@@ -225,7 +246,8 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">res</span><span class="o">.</span><span class="n">add_undirected_edge</span><span class="p">(</span><span class="n">source_vertex</span><span class="p">,</span> <span class="n">source_nbr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">weights</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">res</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
 </pre></div>
 
            </div>
