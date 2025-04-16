@@ -26,7 +26,7 @@ def backtrack(parents: list[int], end_vertex: int) -> list[int]:
 def find_shortest_path(
     graph: AdjList, start_vertex: int, end_vertex: int
 ) -> list[int] | None:
-    """Finds the shortest path to ``end_vertex`` in unweighted graph
+    """Finds the shortest path from ``start_vertex`` to ``end_vertex`` in unweighted graph
 
     Args:
         graph (AdjList): Graph as adjacency list

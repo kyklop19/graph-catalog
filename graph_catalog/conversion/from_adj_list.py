@@ -71,6 +71,14 @@ def AdjList2AdjMat(graph: AdjList) -> AdjMat:
 
 
 def AdjList2IncMat(graph: AdjList) -> IncMat:
+    """Converts graph from adjacency list to incidence matrix
+
+    Args:
+        graph (AdjList): Graph as adjacency list
+
+    Returns:
+        IncMat: Graph as incidence matrix
+    """
     num_of_V = len(graph)
 
     res = []
@@ -103,6 +111,14 @@ def AdjList2IncMat(graph: AdjList) -> IncMat:
 
 
 def AdjList2Graph(graph: AdjList) -> Graph:
+    """Converts graph from adjacency list to instance of Graph
+
+    Args:
+        graph (AdjList): Graph as adjacency list
+
+    Returns:
+        Graph: Graph as instance of Graph
+    """
 
     num_of_V = len(graph)
 

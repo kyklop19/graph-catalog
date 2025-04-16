@@ -10,6 +10,14 @@ from graph_catalog.graph import Edge, Graph, Vertex
 
 
 def AdjMat2EdgeList(graph: AdjMat) -> EdgeList:
+    """Converts graph from adjacency matrix to edge list
+
+    Args:
+        graph (AdjMat): Graph as adjacency matrix
+
+    Returns:
+        EdgeList: Graph as edge list
+    """
 
     num_of_V = len(graph)
 
@@ -26,6 +34,14 @@ def AdjMat2EdgeList(graph: AdjMat) -> EdgeList:
 
 
 def AdjMat2AdjList(graph: AdjMat) -> AdjList:
+    """Converts graph from adjacency matrix to adjacency list
+
+    Args:
+        graph (AdjMat): Graph as adjacency matrix
+
+    Returns:
+        AdjList: Graph as adjacency list
+    """
     num_of_V = len(graph)
 
     res = []
@@ -48,6 +64,14 @@ def AdjMat2AdjList(graph: AdjMat) -> AdjList:
 
 
 def AdjMat2IncMat(graph: AdjMat) -> IncMat:
+    """Converts graph from adjacency matrix to incidence matrix
+
+    Args:
+        graph (AdjMat): Graph as adjacency matrix
+
+    Returns:
+        IncMat: Graph as incidence matrix
+    """
 
     size = len(graph)
 
@@ -77,6 +101,14 @@ def AdjMat2IncMat(graph: AdjMat) -> IncMat:
 
 
 def AdjMat2Graph(graph: AdjMat) -> Graph:
+    """Converts graph from adjacency matrix to instance of Graph
+
+    Args:
+        graph (AdjMat): Graph as adjacency matrix
+
+    Returns:
+        Graph: Graph as instance of Graph
+    """
     num_of_V = len(graph)
 
     res = Graph()
