@@ -72,6 +72,16 @@ def dfs_component(
     start_vertex: int = 0,
     search_order: DFSOrder = DFSOrder.PREORDER,
 ) -> Iterator[tuple[int, DFSStates[list[int | None], list[int], list[int]]]]:
+    """Iterates over the graph's vertices in **the component that contains** ``start_vertex`` in DFS manner and yields current vertex and state
+
+    Args:
+        graph (AdjList): Graph as ``AdjList``
+        start_vertex (int, optional): Vertex from which to start searching. Defaults to 0.
+        search_order (DFSOrder, optional): Order in which to yield current vertex and state. Defaults to DFSOrder.PREORDER.
+
+    Yields:
+        Iterator[tuple[int, DFSStates[list[int | None], list[int], list[int]]]]: Currently searched vertex and state of the search
+    """
     length = len(graph)
     orders = (0, 0)
     dfs_states = DFSStates(
@@ -91,15 +101,17 @@ def dfs(
     start_vertex: int = 0,
     search_order: DFSOrder = DFSOrder.PREORDER,
 ) -> Iterator[tuple[int, DFSStates[list[int | None], list[int], list[int]]]]:
-    """Iterates over the graph's vertices in DFS manner and yields current vertex and state
+    """Iterates over the graph's vertices in **all components** in DFS manner and yields current vertex and state
 
     Args:
-        graph (AdjList): Graph as `AdjList`
-        start_vertex (int, optional): _description_. Defaults to 0.
+        graph (AdjList): Graph as ``AdjList``
+        start_vertex (int, optional): Vertex from which to start searching. Defaults to 0.
+        search_order (DFSOrder, optional): Order in which to yield current vertex and state. Defaults to DFSOrder.PREORDER.
 
     Yields:
-        Iterator[tuple[int, DFSStates[list[int | None], list[int], list[int]]]]: _description_
+        Iterator[tuple[int, DFSStates[list[int | None], list[int], list[int]]]]: Currently searched vertex and state of the search
     """
+
     length = len(graph)
     orders = (0, 0)
     dfs_states = DFSStates(
@@ -125,12 +137,12 @@ def dfs(
                 yield (curr_vertex, curr_dfs_states)
 
 
-def bfs_component(
+def _bfs_component(
     graph: AdjList,
     start_vertex: int = 0,
     distance: int = 0,
     distances: list[int | float] | None = None,
-    parents: list[int] | None = None,
+    parents: list[int | None] | None = None,
 ) -> Iterator[tuple[int, BFSStates[list[int], list[int | float]]]]:
     if distances is None:
         num_of_V = len(graph)
@@ -162,16 +174,49 @@ def bfs_component(
             distance += 1
 
 
-def bfs(
+def bfs_component(
     graph: AdjList, start_vertex: int = 0
 ) -> Iterator[tuple[int, BFSStates[list[int], list[int | float]]]]:
+    """Iterates over the graph's vertices in **the component that contains** ``start_vertex`` in BFS manner and yields current vertex and state
+
+    Args:
+        graph (AdjList): Graph as ``AdjList``
+        start_vertex (int, optional): Vertex from which to start searching. Defaults to 0.
+
+    Yields:
+        Iterator[tuple[int, BFSStates[list[int], list[int | float]]]]: Currently searched vertex and state of the search
+    """
 
     distance = 0
     length = len(graph)
     distances = [inf] * length
     parents = [None] * length
 
+    for res in _bfs_component(graph, start_vertex, distance, distances, parents):
+        yield res
+
+
+def bfs(
+    graph: AdjList, start_vertex: int = 0
+) -> Iterator[tuple[int, BFSStates[list[int], list[int | float]]]]:
+    """Iterates over the graph's vertices in **all components** in BFS manner and yields current vertex and state
+
+    Args:
+        graph (AdjList): Graph as ``AdjList``
+        start_vertex (int, optional): Vertex from which to start searching. Defaults to 0.
+
+    Yields:
+        Iterator[tuple[int, BFSStates[list[int], list[int | float]]]]: Currently searched vertex and state of the search
+    """
+
+    distance = 0
+    length = len(graph)
+    distances = [inf] * length
+    parents = [None] * length
+
+    for res in _bfs_component(graph, start_vertex, distance, distances, parents):
+        yield res
     for i in range(length):
         if distances[i] == inf:
-            for res in bfs_component(graph, i, distance, distances, parents):
+            for res in _bfs_component(graph, i, distance, distances, parents):
                 yield res
