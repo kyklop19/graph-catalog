@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "graph_catalog"))
 project = "graph-catalog"
 copyright = "2024, Dominik Havelka"
 author = "Dominik Havelka"
-release = "0.9.4"
+release = "0.9.6"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

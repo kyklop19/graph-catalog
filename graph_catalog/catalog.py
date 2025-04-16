@@ -65,7 +65,7 @@ def load_with_name(name: str) -> dict[str, Any]:
 def load_with_number(number: str) -> dict[str, Any]:
     """Loads graph and metadata from catalog using graph's number
 
-    To make loading with number anonymous, the function doesn't deletes
+    To make loading with number anonymous, the function deletes
     anonymous fields from the metadata before returning.
 
     Args:

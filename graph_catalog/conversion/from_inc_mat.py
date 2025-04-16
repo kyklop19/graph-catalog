@@ -44,6 +44,14 @@ def iterate_over_edges(graph: IncMat):
 
 
 def IncMat2AdjMat(graph: IncMat) -> AdjMat:
+    """Converts graph from incidence matrix to adjacency matrix
+
+    Args:
+        graph (IncMat): Graph as incidence matrix
+
+    Returns:
+        AdjMat: Graph as adjacency matrix
+    """
     num_of_V = len(graph)
     num_of_E = len(graph[0])
 
@@ -61,6 +69,14 @@ def IncMat2AdjMat(graph: IncMat) -> AdjMat:
 
 
 def IncMat2AdjList(graph: IncMat) -> AdjList:
+    """Converts graph from incidence matrix to adjacency list
+
+    Args:
+        graph (IncMat): Graph as incidence matrix
+
+    Returns:
+        AdjList: Graph as adjacency list
+    """
     num_of_V = len(graph)
     num_of_E = len(graph[0])
 
@@ -78,6 +94,14 @@ def IncMat2AdjList(graph: IncMat) -> AdjList:
 
 
 def IncMat2EdgeList(graph: IncMat) -> EdgeList:
+    """Converts graph from incidence matrix to edge list
+
+    Args:
+        graph (IncMat): Graph as incidence matrix
+
+    Returns:
+        EdgeList: Graph as edge list
+    """
     num_of_V = len(graph)
     num_of_E = len(graph[0])
 
@@ -90,6 +114,14 @@ def IncMat2EdgeList(graph: IncMat) -> EdgeList:
 
 
 def IncMat2Graph(graph: IncMat) -> Graph:
+    """Converts graph from incidence matrix to instance of Graph
+
+    Args:
+        graph (IncMat): Graph as incidence matrix
+
+    Returns:
+        Graph: Graph as instance of Graph
+    """
     num_of_V = len(graph)
 
     num_of_E = len(graph[0])
