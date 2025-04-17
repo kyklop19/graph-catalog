@@ -8,14 +8,19 @@ from graph_catalog.utils import binary_search
 
 
 class Vertex:
-    """Represent vertex of a graph."""
+    """Represent vertex of a graph.
+
+    Attributes:
+        index (int): Index of the vertex in graph
+        weights (Weights): Weights of this vertex
+    """
 
     def __init__(
         self, index: int, outgoing_edges: list[Edge] = [], weights: Weights = {}
     ) -> None:
         self.index = index
-        self._outgoing_edges = []
-        self._nbrs = []
+        self._outgoing_edges: list[Edge] = []
+        self._nbrs: list[Vertex] = []
         for edge in outgoing_edges:
             self.add_edge(edge)
         self.weights = weights
@@ -36,10 +41,12 @@ class Vertex:
 
     @property
     def outgoing_edges(self) -> list[Edge]:
+        """list[Edge]: List with edges that go out of this vertex"""
         return self._outgoing_edges
 
     @property
-    def nbrs(self) -> set[Vertex]:
+    def nbrs(self) -> list[Vertex]:
+        """list[Vertex]: List of adjacent vertices"""
         return self._nbrs
 
     def add_edge(self, edge: Edge) -> None:
@@ -57,7 +64,12 @@ class Vertex:
 
 
 class Edge(ABC):
-    """Represent edge of a graph."""
+    """Represent edge of a graph.
+
+    Attributes:
+        index (int): Index of the edge in graph
+        weights (): Weights of this edge
+    """
 
     def __init__(self, index: int, weights: Weights = {}) -> None:
         self.index = index
@@ -78,6 +90,14 @@ class Edge(ABC):
 
 
 class UndirectedEdge(Edge):
+    """Represents undirected edge of a graph
+
+    The order of vertices doesn't matter.
+
+    Attributes:
+        vertex1 (Vertex): One of the vertices of undirected edge
+        vertex2 (Vertex): One of the vertices of undirected edge
+    """
 
     def __init__(
         self, index: int, vertex1: Vertex, vertex2: Vertex, weights: Weights = {}
@@ -102,6 +122,12 @@ class UndirectedEdge(Edge):
 
 
 class DirectedEdge(Edge):
+    """Represents directed edge
+
+    Attributes:
+        source_vertex (Vertex): The vertex **from** which the directed edge goes
+        target_vertex (Vertex): The vertex **to** which the directed edge goes
+    """
 
     def __init__(
         self,
@@ -134,6 +160,11 @@ class DirectedEdge(Edge):
 
 
 class LoopEdge(Edge):
+    """Represents loop in graph
+
+    Attributes:
+        vertex (Vertex): Vertex in which the loop is located
+    """
 
     def __init__(self, index: int, vertex: Vertex, weights: Weights = {}) -> None:
         super().__init__(index, weights)
@@ -154,6 +185,11 @@ class LoopEdge(Edge):
 
 
 class UndirectedHyperedge(Edge):
+    """Represents undirected hyperedge
+
+    Attributes:
+        vertices (list[Vertex]): List of vertices which this edge connects
+    """
 
     def __init__(
         self, index: int, vertices: list[Vertex], weights: Weights = {}
@@ -178,6 +214,12 @@ class UndirectedHyperedge(Edge):
 
 
 class DirectedHyperedge(Edge):
+    """Represents directed hyperedge
+
+    Attributes:
+        source_vertices (list[Vertex]): List of vertices **from** which the directed hyperedge goes
+        target_vertices (list[Vertex]): List of vertices **to** which the directed hyperedge goes
+    """
 
     def __init__(
         self,
@@ -211,9 +253,16 @@ class DirectedHyperedge(Edge):
 
 
 class Graph:
-    """Represent graph in dynamic manner."""
+    """Represent graph in dynamic manner.
 
-    def __init__(self, vertices: list[Vertex] = None, edges: list[Edge] = None) -> None:
+    Attributes:
+        vertices (list[Vertex] | None): List of vertices that are part of this graph
+        edges (list[Edge] | None): List of edges that are part of this graph
+    """
+
+    def __init__(
+        self, vertices: list[Vertex] | None = None, edges: list[Edge] | None = None
+    ) -> None:
 
         if vertices is None:
             vertices = []
