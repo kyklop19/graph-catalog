@@ -13,3 +13,12 @@
 '1.3':
   filename: searching
   key: 1.3disconnected_cycle,_tree_and_vertex
+'2.0':
+  filename: connectivity
+  key: 2.03_components,_1_isolated_vertex
+'3.0':
+  filename: bipartite
+  key: 3.0bipartite_blob
+'4.0':
+  filename: topological_ordering
+  key: 4.01_start,_1_finish

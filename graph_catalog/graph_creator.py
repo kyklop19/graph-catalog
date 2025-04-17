@@ -1,3 +1,4 @@
+from collections import deque
 from enum import Enum, auto
 from pathlib import Path
 from sys import path
@@ -26,6 +27,7 @@ class EdgeType:
 class CommandExecutor:
 
     def __init__(self):
+        self.call_stack = deque()
         self.reset()
 
     def reset(self):
@@ -130,11 +132,13 @@ class CommandExecutor:
         self.update_html()
 
     def execute_command(self, cmd):
+        self.call_stack.append(cmd)
         quit = False
         match fullmatch_in(cmd):
             case r"quit":
                 quit = True
             case r"reset":
+                self.call_stack = deque()
                 self.reset()
             case r"print ?(\w+)?" as m:
                 self.print(m[1])
@@ -162,7 +166,18 @@ class CommandExecutor:
                     case __:
                         opts = None
                 save(m[3], m[1], self.graph, opts=opts)
-
+            case r"back":
+                reset_calls = self.call_stack
+                self.call_stack = deque()
+                self.reset()
+                for __ in range(2):
+                    reset_calls.pop()
+                while len(reset_calls) != 0:
+                    cmd = reset_calls.popleft()
+                    self.execute_command(cmd)
+            case r"history":
+                for cmd in self.call_stack:
+                    print(cmd)
             case __:
                 print("unsupported cmd")
         return quit

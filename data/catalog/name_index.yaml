@@ -1,6 +1,15 @@
+1 start, 1 finish:
+  filename: topological_ordering
+  key: 4.01_start,_1_finish
+3 components, 1 isolated vertex:
+  filename: connectivity
+  key: 2.03_components,_1_isolated_vertex
 binary tree with branching and long branch:
   filename: searching
   key: 1.0binary_tree_with_branching_and_long_branch
+bipartite blob:
+  filename: bipartite
+  key: 3.0bipartite_blob
 branched cycle:
   filename: searching
   key: 1.1branched_cycle

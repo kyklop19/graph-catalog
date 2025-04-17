@@ -3,7 +3,7 @@ from graph_catalog.constants import AdjList
 
 
 def find_topological_ordering(graph: AdjList) -> list[int] | None:
-    """Find topological ordering of the given directed graph
+    """Find topological ordering of the given directed graph if any exists
 
     Args:
         graph (AdjList): Directed graph as adjacency list
