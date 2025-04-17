@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>graph &mdash; Dokumentace pro graph-catalog 0.9.7</title>
+  <title>graph &mdash; Dokumentace pro graph-catalog 0.9.8</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=125d5c1c" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=3185f248"></script>
+      <script src="../_static/documentation_options.js?v=d99f518a"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=22e1c300"></script>
@@ -57,15 +57,45 @@
 <li class="toctree-l2"><a class="reference internal" href="conversion/index.html">conversion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="algorithms/index.html">algorithms</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">graph</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.DirectedEdge"><code class="docutils literal notranslate"><span class="pre">DirectedEdge</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.DirectedHyperedge"><code class="docutils literal notranslate"><span class="pre">DirectedHyperedge</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.Edge"><code class="docutils literal notranslate"><span class="pre">Edge</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.LoopEdge"><code class="docutils literal notranslate"><span class="pre">LoopEdge</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.UndirectedEdge"><code class="docutils literal notranslate"><span class="pre">UndirectedEdge</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.UndirectedHyperedge"><code class="docutils literal notranslate"><span class="pre">UndirectedHyperedge</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.DirectedEdge"><code class="docutils literal notranslate"><span class="pre">DirectedEdge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.DirectedEdge.source_vertex"><code class="docutils literal notranslate"><span class="pre">DirectedEdge.source_vertex</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.DirectedEdge.target_vertex"><code class="docutils literal notranslate"><span class="pre">DirectedEdge.target_vertex</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.DirectedHyperedge"><code class="docutils literal notranslate"><span class="pre">DirectedHyperedge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.DirectedHyperedge.source_vertices"><code class="docutils literal notranslate"><span class="pre">DirectedHyperedge.source_vertices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.DirectedHyperedge.target_vertices"><code class="docutils literal notranslate"><span class="pre">DirectedHyperedge.target_vertices</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.Edge"><code class="docutils literal notranslate"><span class="pre">Edge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.Edge.index"><code class="docutils literal notranslate"><span class="pre">Edge.index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.Edge.weights"><code class="docutils literal notranslate"><span class="pre">Edge.weights</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.Graph.vertices"><code class="docutils literal notranslate"><span class="pre">Graph.vertices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.Graph.edges"><code class="docutils literal notranslate"><span class="pre">Graph.edges</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.LoopEdge"><code class="docutils literal notranslate"><span class="pre">LoopEdge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.LoopEdge.vertex"><code class="docutils literal notranslate"><span class="pre">LoopEdge.vertex</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.UndirectedEdge"><code class="docutils literal notranslate"><span class="pre">UndirectedEdge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.UndirectedEdge.vertex1"><code class="docutils literal notranslate"><span class="pre">UndirectedEdge.vertex1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.UndirectedEdge.vertex2"><code class="docutils literal notranslate"><span class="pre">UndirectedEdge.vertex2</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.UndirectedHyperedge"><code class="docutils literal notranslate"><span class="pre">UndirectedHyperedge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.UndirectedHyperedge.vertices"><code class="docutils literal notranslate"><span class="pre">UndirectedHyperedge.vertices</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#graph_catalog.graph.Vertex"><code class="docutils literal notranslate"><span class="pre">Vertex</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.Vertex.index"><code class="docutils literal notranslate"><span class="pre">Vertex.index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.Vertex.weights"><code class="docutils literal notranslate"><span class="pre">Vertex.weights</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.Vertex.add_edge"><code class="docutils literal notranslate"><span class="pre">Vertex.add_edge()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.Vertex.nbrs"><code class="docutils literal notranslate"><span class="pre">Vertex.nbrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph_catalog.graph.Vertex.outgoing_edges"><code class="docutils literal notranslate"><span class="pre">Vertex.outgoing_edges</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -105,44 +135,199 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="graph_catalog.graph.DirectedEdge">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.graph.</span></span><span class="sig-name descname"><span class="pre">DirectedEdge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Weights</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graph_catalog/graph.html#DirectedEdge"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.graph.DirectedEdge" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Represents directed edge</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.DirectedEdge.source_vertex">
+<span class="sig-name descname"><span class="pre">source_vertex</span></span><a class="headerlink" href="#graph_catalog.graph.DirectedEdge.source_vertex" title="Link to this definition"></a></dt>
+<dd><p>The vertex <strong>from</strong> which the directed edge goes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex">Vertex</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.DirectedEdge.target_vertex">
+<span class="sig-name descname"><span class="pre">target_vertex</span></span><a class="headerlink" href="#graph_catalog.graph.DirectedEdge.target_vertex" title="Link to this definition"></a></dt>
+<dd><p>The vertex <strong>to</strong> which the directed edge goes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex">Vertex</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="graph_catalog.graph.DirectedHyperedge">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.graph.</span></span><span class="sig-name descname"><span class="pre">DirectedHyperedge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_vertices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_vertices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Weights</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graph_catalog/graph.html#DirectedHyperedge"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.graph.DirectedHyperedge" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Represents directed hyperedge</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.DirectedHyperedge.source_vertices">
+<span class="sig-name descname"><span class="pre">source_vertices</span></span><a class="headerlink" href="#graph_catalog.graph.DirectedHyperedge.source_vertices" title="Link to this definition"></a></dt>
+<dd><p>List of vertices <strong>from</strong> which the directed hyperedge goes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex">Vertex</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.DirectedHyperedge.target_vertices">
+<span class="sig-name descname"><span class="pre">target_vertices</span></span><a class="headerlink" href="#graph_catalog.graph.DirectedHyperedge.target_vertices" title="Link to this definition"></a></dt>
+<dd><p>List of vertices <strong>to</strong> which the directed hyperedge goes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex">Vertex</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="graph_catalog.graph.Edge">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.graph.</span></span><span class="sig-name descname"><span class="pre">Edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Weights</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graph_catalog/graph.html#Edge"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.graph.Edge" title="Link to this definition"></a></dt>
 <dd><p>Represent edge of a graph.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.Edge.index">
+<span class="sig-name descname"><span class="pre">index</span></span><a class="headerlink" href="#graph_catalog.graph.Edge.index" title="Link to this definition"></a></dt>
+<dd><p>Index of the edge in graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.Edge.weights">
+<span class="sig-name descname"><span class="pre">weights</span></span><a class="headerlink" href="#graph_catalog.graph.Edge.weights" title="Link to this definition"></a></dt>
+<dd><p>Weights of this edge</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="graph_catalog.graph.Graph">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.graph.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#graph_catalog.graph.Edge" title="graph_catalog.graph.Edge"><span class="pre">Edge</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graph_catalog/graph.html#Graph"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.graph.Graph" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.graph.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#graph_catalog.graph.Edge" title="graph_catalog.graph.Edge"><span class="pre">Edge</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graph_catalog/graph.html#Graph"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.graph.Graph" title="Link to this definition"></a></dt>
 <dd><p>Represent graph in dynamic manner.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.Graph.vertices">
+<span class="sig-name descname"><span class="pre">vertices</span></span><a class="headerlink" href="#graph_catalog.graph.Graph.vertices" title="Link to this definition"></a></dt>
+<dd><p>List of vertices that are part of this graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex">Vertex</a>] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.Graph.edges">
+<span class="sig-name descname"><span class="pre">edges</span></span><a class="headerlink" href="#graph_catalog.graph.Graph.edges" title="Link to this definition"></a></dt>
+<dd><p>List of edges that are part of this graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#graph_catalog.graph.Edge" title="graph_catalog.graph.Edge">Edge</a>] | None</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="graph_catalog.graph.LoopEdge">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.graph.</span></span><span class="sig-name descname"><span class="pre">LoopEdge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Weights</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graph_catalog/graph.html#LoopEdge"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.graph.LoopEdge" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Represents loop in graph</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.LoopEdge.vertex">
+<span class="sig-name descname"><span class="pre">vertex</span></span><a class="headerlink" href="#graph_catalog.graph.LoopEdge.vertex" title="Link to this definition"></a></dt>
+<dd><p>Vertex in which the loop is located</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex">Vertex</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="graph_catalog.graph.UndirectedEdge">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.graph.</span></span><span class="sig-name descname"><span class="pre">UndirectedEdge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Weights</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graph_catalog/graph.html#UndirectedEdge"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.graph.UndirectedEdge" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Represents undirected edge of a graph</p>
+<p>The order of vertices doesn’t matter.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.UndirectedEdge.vertex1">
+<span class="sig-name descname"><span class="pre">vertex1</span></span><a class="headerlink" href="#graph_catalog.graph.UndirectedEdge.vertex1" title="Link to this definition"></a></dt>
+<dd><p>One of the vertices of undirected edge</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex">Vertex</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.UndirectedEdge.vertex2">
+<span class="sig-name descname"><span class="pre">vertex2</span></span><a class="headerlink" href="#graph_catalog.graph.UndirectedEdge.vertex2" title="Link to this definition"></a></dt>
+<dd><p>One of the vertices of undirected edge</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex">Vertex</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="graph_catalog.graph.UndirectedHyperedge">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.graph.</span></span><span class="sig-name descname"><span class="pre">UndirectedHyperedge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Weights</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graph_catalog/graph.html#UndirectedHyperedge"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.graph.UndirectedHyperedge" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Represents undirected hyperedge</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.UndirectedHyperedge.vertices">
+<span class="sig-name descname"><span class="pre">vertices</span></span><a class="headerlink" href="#graph_catalog.graph.UndirectedHyperedge.vertices" title="Link to this definition"></a></dt>
+<dd><p>List of vertices which this edge connects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex">Vertex</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="graph_catalog.graph.Vertex">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph_catalog.graph.</span></span><span class="sig-name descname"><span class="pre">Vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outgoing_edges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#graph_catalog.graph.Edge" title="graph_catalog.graph.Edge"><span class="pre">Edge</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Weights</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graph_catalog/graph.html#Vertex"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.graph.Vertex" title="Link to this definition"></a></dt>
 <dd><p>Represent vertex of a graph.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.Vertex.index">
+<span class="sig-name descname"><span class="pre">index</span></span><a class="headerlink" href="#graph_catalog.graph.Vertex.index" title="Link to this definition"></a></dt>
+<dd><p>Index of the vertex in graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graph_catalog.graph.Vertex.weights">
+<span class="sig-name descname"><span class="pre">weights</span></span><a class="headerlink" href="#graph_catalog.graph.Vertex.weights" title="Link to this definition"></a></dt>
+<dd><p>Weights of this vertex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Weights</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="graph_catalog.graph.Vertex.add_edge">
 <span class="sig-name descname"><span class="pre">add_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#graph_catalog.graph.Edge" title="graph_catalog.graph.Edge"><span class="pre">Edge</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/graph_catalog/graph.html#Vertex.add_edge"><span class="viewcode-link"><span class="pre">[zdroj]</span></span></a><a class="headerlink" href="#graph_catalog.graph.Vertex.add_edge" title="Link to this definition"></a></dt>
@@ -150,6 +335,28 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parametry<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>edge</strong> (<a class="reference internal" href="#graph_catalog.graph.Edge" title="graph_catalog.graph.Edge"><em>Edge</em></a>) – Edge in which this vertex is source vertex</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="graph_catalog.graph.Vertex.nbrs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nbrs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex"><span class="pre">Vertex</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#graph_catalog.graph.Vertex.nbrs" title="Link to this definition"></a></dt>
+<dd><p>List of adjacent vertices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#graph_catalog.graph.Vertex" title="graph_catalog.graph.Vertex">Vertex</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="graph_catalog.graph.Vertex.outgoing_edges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outgoing_edges</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#graph_catalog.graph.Edge" title="graph_catalog.graph.Edge"><span class="pre">Edge</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#graph_catalog.graph.Vertex.outgoing_edges" title="Link to this definition"></a></dt>
+<dd><p>List with edges that go out of this vertex</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#graph_catalog.graph.Edge" title="graph_catalog.graph.Edge">Edge</a>]</p>
 </dd>
 </dl>
 </dd></dl>

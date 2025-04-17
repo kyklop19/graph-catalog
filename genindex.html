@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rejstřík &mdash; Dokumentace pro graph-catalog 0.9.7</title>
+  <title>Rejstřík &mdash; Dokumentace pro graph-catalog 0.9.8</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-codeautolink.css?v=125d5c1c" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=3185f248"></script>
+      <script src="_static/documentation_options.js?v=d99f518a"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/translations.js?v=22e1c300"></script>
@@ -93,6 +93,7 @@
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
@@ -189,11 +190,13 @@
 </li>
       <li><a href="modules/conversion/from_edge_list.html#graph_catalog.conversion.from_edge_list.EdgeList2AdjMat">EdgeList2AdjMat() (v modulu graph_catalog.conversion.from_edge_list)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/conversion/from_edge_list.html#graph_catalog.conversion.from_edge_list.EdgeList2Graph">EdgeList2Graph() (v modulu graph_catalog.conversion.from_edge_list)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/conversion/from_edge_list.html#graph_catalog.conversion.from_edge_list.EdgeList2IncMat">EdgeList2IncMat() (v modulu graph_catalog.conversion.from_edge_list)</a>
+</li>
+      <li><a href="modules/graph.html#graph_catalog.graph.Graph.edges">edges (atribut graph_catalog.graph.Graph)</a>
 </li>
       <li><a href="modules/constants.html#graph_catalog.constants.EdgeTuple">EdgeTuple (třída v graph_catalog.constants)</a>
 </li>
@@ -369,12 +372,18 @@
 </li>
       <li><a href="modules/conversion/from_inc_mat.html#graph_catalog.conversion.from_inc_mat.IncMat2AdjMat">IncMat2AdjMat() (v modulu graph_catalog.conversion.from_inc_mat)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/conversion/from_inc_mat.html#graph_catalog.conversion.from_inc_mat.IncMat2EdgeList">IncMat2EdgeList() (v modulu graph_catalog.conversion.from_inc_mat)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/conversion/from_inc_mat.html#graph_catalog.conversion.from_inc_mat.IncMat2Graph">IncMat2Graph() (v modulu graph_catalog.conversion.from_inc_mat)</a>
 </li>
+      <li><a href="modules/graph.html#graph_catalog.graph.Edge.index">index (atribut graph_catalog.graph.Edge)</a>
+
+      <ul>
+        <li><a href="modules/graph.html#graph_catalog.graph.Vertex.index">(atribut graph_catalog.graph.Vertex)</a>
+</li>
+      </ul></li>
       <li><a href="modules/algorithms/bipartite.html#graph_catalog.algorithms.bipartite.is_bipartite">is_bipartite() (v modulu graph_catalog.algorithms.bipartite)</a>
 </li>
   </ul></td>
@@ -440,6 +449,10 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/graph.html#graph_catalog.graph.Vertex.nbrs">nbrs (graph_catalog.graph.Vertex property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/constants.html#graph_catalog.constants.NbrTuple">NbrTuple (třída v graph_catalog.constants)</a>
 </li>
   </ul></td>
@@ -452,6 +465,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/graph.html#graph_catalog.graph.Vertex.outgoing_edges">outgoing_edges (graph_catalog.graph.Vertex property)</a>
+</li>
       <li><a href="modules/constants.html#graph_catalog.constants.OverwriteError">OverwriteError</a>
 </li>
   </ul></td>
@@ -480,11 +495,27 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/catalog.html#graph_catalog.catalog.save">save() (v modulu graph_catalog.catalog)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/catalog.html#graph_catalog.catalog.SaveOpts">SaveOpts (třída v graph_catalog.catalog)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/graph.html#graph_catalog.graph.DirectedEdge.source_vertex">source_vertex (atribut graph_catalog.graph.DirectedEdge)</a>
+</li>
+      <li><a href="modules/graph.html#graph_catalog.graph.DirectedHyperedge.source_vertices">source_vertices (atribut graph_catalog.graph.DirectedHyperedge)</a>
+</li>
       <li><a href="modules/constants.html#graph_catalog.constants.EdgeTuple.start_vertex">start_vertex (atribut graph_catalog.constants.EdgeTuple)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/graph.html#graph_catalog.graph.DirectedEdge.target_vertex">target_vertex (atribut graph_catalog.graph.DirectedEdge)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/graph.html#graph_catalog.graph.DirectedHyperedge.target_vertices">target_vertices (atribut graph_catalog.graph.DirectedHyperedge)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -505,11 +536,25 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/constants.html#graph_catalog.constants.NbrTuple.vertex">vertex (atribut graph_catalog.constants.NbrTuple)</a>
+
+      <ul>
+        <li><a href="modules/graph.html#graph_catalog.graph.LoopEdge.vertex">(atribut graph_catalog.graph.LoopEdge)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/graph.html#graph_catalog.graph.Vertex">Vertex (třída v graph_catalog.graph)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/graph.html#graph_catalog.graph.Vertex">Vertex (třída v graph_catalog.graph)</a>
+      <li><a href="modules/graph.html#graph_catalog.graph.UndirectedEdge.vertex1">vertex1 (atribut graph_catalog.graph.UndirectedEdge)</a>
 </li>
+      <li><a href="modules/graph.html#graph_catalog.graph.UndirectedEdge.vertex2">vertex2 (atribut graph_catalog.graph.UndirectedEdge)</a>
+</li>
+      <li><a href="modules/graph.html#graph_catalog.graph.Graph.vertices">vertices (atribut graph_catalog.graph.Graph)</a>
+
+      <ul>
+        <li><a href="modules/graph.html#graph_catalog.graph.UndirectedHyperedge.vertices">(atribut graph_catalog.graph.UndirectedHyperedge)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -520,6 +565,10 @@
 
       <ul>
         <li><a href="modules/constants.html#graph_catalog.constants.NbrTuple.weights">(atribut graph_catalog.constants.NbrTuple)</a>
+</li>
+        <li><a href="modules/graph.html#graph_catalog.graph.Edge.weights">(atribut graph_catalog.graph.Edge)</a>
+</li>
+        <li><a href="modules/graph.html#graph_catalog.graph.Vertex.weights">(atribut graph_catalog.graph.Vertex)</a>
 </li>
       </ul></li>
   </ul></td>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dynamická reprezentace &mdash; Dokumentace pro graph-catalog 0.9.7</title>
+  <title>Dynamická reprezentace &mdash; Dokumentace pro graph-catalog 0.9.8</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-codeautolink.css?v=125d5c1c" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=3185f248"></script>
+      <script src="../_static/documentation_options.js?v=d99f518a"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=22e1c300"></script>
@@ -88,6 +88,14 @@
              
   <section id="dynamicka-reprezentace">
 <h1>Dynamická reprezentace<a class="headerlink" href="#dynamicka-reprezentace" title="Link to this heading"></a></h1>
+<p>Dynamická reprezentace je implementovaná jako třída
+<a class="reference internal" href="../modules/graph.html#graph_catalog.graph.Graph" title="graph_catalog.graph.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code></a>, kde vrcholy a hrany jsou v příslušných
+seznamech této třídy. Vrcholy a hrany jsou poté implementovány také jako třídy.</p>
+<p>Každý vrchol má seznam hran, které z něho jdou a také seznam sousedů, kam vedou
+zmíněné hrany.</p>
+<p>Každá hrana je podtřída třídy <a class="reference internal" href="../modules/graph.html#graph_catalog.graph.Edge" title="graph_catalog.graph.Edge"><code class="xref py py-class docutils literal notranslate"><span class="pre">Edge</span></code></a> podle toho jaký
+typ hrany reprezentuje. Dle podtřídy jsou také uloženy vrcholy, mezi kterými
+hrana vede.</p>
 </section>
 
 
